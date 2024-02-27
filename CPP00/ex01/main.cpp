@@ -5,20 +5,21 @@ int	main(void)
 	std::string	input;
 	PhoneBook	pbook;
 
-	std::cout << "ADD to add a contact | SEARCH to look up a contact | EXIT to stop the program: ";
 	while (1)
 	{
+		std::cout << "ADD to add a contact | SEARCH to look up a contact | EXIT to stop the program: ";
 		std::getline(std::cin, input);
 		if (input == "ADD")
 		{
-			
+			pbook.newContact();
 		}
 		else if (input == "SEARCH")
-			std::cout << "Called SEARCH";
+		{
+			pbook.search();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		else if (input == "EXIT")
-			exit(0);
-		else
-			std::cout << "ADD to add a contact | SEARCH to look up a contact | EXIT to stop the program: ";
+			return (0);
 	}
 	return (0);
 }

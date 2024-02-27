@@ -4,14 +4,18 @@
 # include "Contact.hpp"
 # include <string>
 # include <iostream>
+# include <iomanip>
 
 class PhoneBook
 {
 	public:
 		PhoneBook();
 		~PhoneBook();
+		void		newContact(void);
+		void		search(void);
 	private:
-		Contact	c_list[8];
+		Contact		c_list[8];
+		static int	num_contacts;
 };
 
 #endif /*PHONEBOOK_HPP*/
