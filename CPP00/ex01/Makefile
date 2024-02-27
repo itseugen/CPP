@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo $(GREEN)"Linking megaphone"$(DEFAULT);
+	@echo $(GREEN)"Linking phonebook"$(DEFAULT);
 
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
