@@ -32,3 +32,6 @@
 *.app
 megaphone
 phonebook
+
+*.pdf
+*.plist
