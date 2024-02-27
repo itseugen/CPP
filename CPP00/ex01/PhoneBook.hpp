@@ -11,7 +11,7 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 	private:
-	Contact	c_list[8];
+		Contact	c_list[8];
 };
 
 #endif /*PHONEBOOK_HPP*/
