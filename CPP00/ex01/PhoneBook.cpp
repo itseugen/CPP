@@ -1,9 +1,9 @@
 #include "PhoneBook.hpp"
 
-int PhoneBook::num_contacts = 0;
 
 PhoneBook::PhoneBook(void)
 {
+	num_contacts = 0;
 }
 
 PhoneBook::~PhoneBook(void)

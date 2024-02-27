@@ -15,7 +15,7 @@ class PhoneBook
 		void		search(void);
 	private:
 		Contact		c_list[8];
-		static int	num_contacts;
+		int			num_contacts;
 };
 
 #endif /*PHONEBOOK_HPP*/
