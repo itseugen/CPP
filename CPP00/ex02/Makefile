@@ -14,7 +14,7 @@ CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR			:= ./objs
 
-SRC				:= test.cpp Account.cpp
+SRC				:= tests.cpp Account.cpp
 
 SRCS			:= $(SRC)
 
