@@ -27,6 +27,8 @@ OBJS			:= $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	curl -O https://cdn.intra.42.fr/document/document/22390/tests.cpp
+	curl -O https://cdn.intra.42.fr/document/document/22388/Account.hpp
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo $(GREEN)"Linking dreamjob"$(DEFAULT);
 
