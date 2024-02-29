@@ -122,7 +122,7 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	std::time_t currentTime = std::time(nullptr);
+	std::time_t currentTime = std::time(NULL);
 	char buffer[20];
 	std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", std::localtime(&currentTime));
 	std::cout << "[" << buffer << "]";
