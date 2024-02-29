@@ -36,6 +36,8 @@ dreamjob
 
 *.txt
 *.log
+Account.hpp
+tests.cpp
 
 *.pdf
 *.plist
