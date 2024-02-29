@@ -20,17 +20,23 @@ SRCS			:= $(SRC)
 
 OBJS			:= $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 
+SUBFILES		:= tests.cpp Account.hpp
+
 # ---------------------------------------------------------------------------- #
 #                                     Rules                                    #
 # ---------------------------------------------------------------------------- #
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	curl -O https://cdn.intra.42.fr/document/document/22390/tests.cpp
-	curl -O https://cdn.intra.42.fr/document/document/22388/Account.hpp
+$(NAME): $(SUBFILES) $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo $(GREEN)"Linking dreamjob"$(DEFAULT);
+
+$(SUBFILES):
+	curl -O https://cdn.intra.42.fr/document/document/22390/tests.cpp
+	curl -O https://cdn.intra.42.fr/document/document/22388/Account.hpp
+	curl -O https://cdn.intra.42.fr/document/document/22389/19920104_091532.log
+
 
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
@@ -52,7 +58,6 @@ re: fclean all
 
 compare: all
 	./dreamjob > out.txt
-	curl -O https://cdn.intra.42.fr/document/document/22389/19920104_091532.log
 	awk '{$$1=""; print }' out.txt > file1_mod.txt
 	awk '{$$1=""; print }' 19920104_091532.log > file2_mod.txt
 	diff file1_mod.txt file2_mod.txt || true
