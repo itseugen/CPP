@@ -48,6 +48,15 @@ fclean: clean
 
 re: fclean all
 
+compare: all
+	./dreamjob > out.txt
+	awk '{$$1=""; print }' out.txt > file1_mod.txt
+	awk '{$$1=""; print }' 19920104_091532.log > file2_mod.txt
+	diff file1_mod.txt file2_mod.txt
+	rm file1_mod.txt
+	rm file2_mod.txt
+
+
 .PHONY: all clean fclean re
 
 # Colours to make it look nice
