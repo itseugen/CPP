@@ -34,6 +34,8 @@ megaphone
 phonebook
 dreamjob
 
+brainz
+
 *.txt
 *.log
 Account.hpp
