@@ -41,6 +41,9 @@ brainz
 zombiehorde
 brain
 violence
+sed
+*replace
+
 
 *.txt
 *.log
