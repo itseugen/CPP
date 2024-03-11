@@ -20,7 +20,26 @@ void	Harl::complain(std::string level)
 	{
 		if (names[i] == level)
 		{
-			(this->*msg[i])();
+			int	casenbr = i + 1;
+			switch (casenbr)
+			{
+				case 1:
+					for (int j = casenbr; j < 5; j++)
+						(this->*msg[j - 1])();
+					break ;
+				case 2:
+					for (int j = casenbr; j < 5; j++)
+						(this->*msg[j - 1])();
+					break ;
+				case 3:
+					for (int j = casenbr; j < 5; j++)
+						(this->*msg[j - 1])();
+					break ;
+				case 4:
+					for (int j = casenbr; j < 5; j++)
+						(this->*msg[j - 1])();
+					break ;
+			}
 			return ;
 		}
 	}
