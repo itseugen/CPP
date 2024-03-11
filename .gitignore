@@ -30,13 +30,17 @@
 *.exe
 *.out
 *.app
+
+# CPP00
 megaphone
 phonebook
 dreamjob
 
+# CPP01
 brainz
 zombiehorde
 brain
+violence
 
 *.txt
 *.log
