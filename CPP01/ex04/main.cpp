@@ -6,20 +6,22 @@ static void	replaceFile(std::ifstream &inputFile, std::ofstream &outputFile, std
 
 int	main(int argc, char *argv[])
 {
-	std::string	output_name = argv[1];
 	if (argc != 4)
 	{
 		std::cerr << "Wrong amount of arguments!" << std::endl;
 		return (1);
 	}
+	std::string	output_name = argv[1];
 	std::ifstream inputFile(argv[1]);
 	if (!inputFile.is_open())
 	{
 		std::cerr << "Can't open input file!" << std::endl;
 		return (1);
 	}
+	// output_name.append(".replace");
+	// std::ofstream outputFile(output_name);
 	output_name.append(".replace");
-	std::ofstream outputFile(output_name);
+	std::ofstream outputFile(output_name.c_str());
 	if (!outputFile.is_open())
 	{
 		std::cerr << "Can't create/open output file!" << std::endl;
