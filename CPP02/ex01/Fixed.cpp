@@ -6,6 +6,18 @@ Fixed::Fixed()
 	fix_val = 0;
 }
 
+Fixed::Fixed(const int val)
+{
+	std::cout << "int to fixpoint constructor called" << std::endl;
+	fix_val = val << fr_bits;
+}
+
+Fixed::Fixed(const float val)
+{
+	std::cout << "float to fixpoint constructor called" << std::endl;
+	//Convert to fixed point number
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -41,3 +53,15 @@ void	Fixed::setRawBits(int const raw)
 	std::cout << "setRawBits member function called" << std::endl;
 	this->fix_val = raw;
 }
+
+float	Fixed::toFloat(void) const
+{
+	//Convert fixedpoint to floating point
+}
+
+int		Fixed::toInt(void) const
+{
+	//Convert fixedpoint to int
+	return (this->fix_val >> fr_bits);
+}
+
