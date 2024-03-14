@@ -16,6 +16,7 @@ Fixed::Fixed(const float val)
 {
 	std::cout << "float to fixpoint constructor called" << std::endl;
 	//Convert to fixed point number
+	this->fix_val = static_cast<int>(roundf(val * (1 << fr_bits)));
 }
 
 Fixed::~Fixed()
@@ -44,19 +45,19 @@ Fixed&	Fixed::operator=(const Fixed& f)
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->fix_val);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->fix_val = raw;
 }
 
 float	Fixed::toFloat(void) const
 {
-	//Convert fixedpoint to floating point
+	return (static_cast<float>(this->fix_val) / (1 << fr_bits));
 }
 
 int		Fixed::toInt(void) const
@@ -65,3 +66,8 @@ int		Fixed::toInt(void) const
 	return (this->fix_val >> fr_bits);
 }
 
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return (out);
+}

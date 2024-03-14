@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
@@ -20,5 +21,7 @@ class Fixed
 		int					fix_val;
 		static const	int	fr_bits = 8;
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif /*FIXED_HPP*/
