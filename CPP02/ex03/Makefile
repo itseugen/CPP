@@ -14,7 +14,7 @@ CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR			:= ./objs
 
-SRC				:= main.cpp Fixed.cpp
+SRC				:= main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 SRCS			:= $(SRC)
 
