@@ -25,7 +25,10 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed	crossPBC((pbx.toFloat() * pcy.toFloat()) - (pcx.toFloat() * pby.toFloat()));
 	Fixed	crossPAC((pcx.toFloat() * pay.toFloat()) - (pax.toFloat() * pcy.toFloat()));
 
-	if (crossPBA.toFloat() * sign)
+	if ((crossPBA.toFloat() * sign) > 0 && (crossPBC.toFloat() * sign) > 0 && (crossPAC.toFloat() * sign) > 0)
+		return (true);
+	else
+		return (false);
 }
 
 // bool bsp(const Point a, const Point b, const Point c, const Point point) {
