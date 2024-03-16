@@ -12,20 +12,16 @@ Point::~Point()
 {
 }
 
-Point::Point(const Point& p)
+Point::Point(const Point& p) : x(p.x), y(p.y)
 {
 	if (this != &p)
 		*this = p;
 }
 
-Point&	Point::operator=(const Point& p)
+Point& Point::operator=(const Point& p)
 {
-	// if (this != &p)
-	// {
-	// 	this->x = p.x;
-	// 	this->y = p.y;
-	// }
-	return (*this);
+	(void)p;
+	return *this;
 }
 
 float	Point::getX(void) const
@@ -36,4 +32,9 @@ float	Point::getX(void) const
 float	Point::getY(void) const
 {
 	return (this->y.toFloat());
+}
+
+void	Point::printPoint(void)
+{
+	std::cout << "x: " << getX() << "; y: " << getY() << std::endl;
 }

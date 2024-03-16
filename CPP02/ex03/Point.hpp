@@ -2,6 +2,7 @@
 # define POINT_HPP
 
 # include "Fixed.hpp"
+# include <iostream>
 
 class Point
 {
@@ -13,6 +14,7 @@ public:
 	~Point();
 	float	getX(void) const;
 	float	getY(void) const;
+	void	printPoint(void);
 private:
 	const Fixed	x;
 	const Fixed	y;
