@@ -7,7 +7,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed	cax(c.getX() - a.getX());
 	Fixed	cay(c.getY() - a.getY());
 
-	Fixed	crossPro((bax.toFloat() * cay.toFloat()) - (cax.toFloat() * bay.toFloat()));
+	Fixed	crossPro((bax * cay) - (cax * bay));
 	int sign;
 
 	if (crossPro.toInt() >= 0)
@@ -21,11 +21,11 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed	pcx(point.getX() - c.getX());
 	Fixed	pcy(point.getY() - c.getY());
 
-	Fixed	crossPBA((pax.toFloat() * pby.toFloat()) - (pbx.toFloat() * pay.toFloat()));
-	Fixed	crossPBC((pbx.toFloat() * pcy.toFloat()) - (pcx.toFloat() * pby.toFloat()));
-	Fixed	crossPAC((pcx.toFloat() * pay.toFloat()) - (pax.toFloat() * pcy.toFloat()));
+	Fixed	crossPBA((pax * pby) - (pbx * pay));
+	Fixed	crossPBC((pbx * pcy) - (pcx * pby));
+	Fixed	crossPAC((pcx * pay) - (pax * pcy));
 
-	if ((crossPBA.toFloat() * sign) > 0 && (crossPBC.toFloat() * sign) > 0 && (crossPAC.toFloat() * sign) > 0)
+	if ((crossPBA * sign) > 0 && (crossPBC* sign) > 0 && (crossPAC * sign) > 0)
 		return (true);
 	else
 		return (false);

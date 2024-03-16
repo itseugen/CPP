@@ -7,7 +7,7 @@ int main(void)
 	Point	b(10, 0);
 	Point	c(0, 10);
 
-	Point	p(9.5, 0.01);
+	Point	p(2.5, 0.01);
 	std::cout << "The triangle point a:" << std::endl;
 	a.printPoint();
 	std::cout << "The triangle point b:" << std::endl;
