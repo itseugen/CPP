@@ -23,7 +23,6 @@ Coded in
 <details>
 <summary><b><span style="font-size: larger;">CPP00:</span></b></summary>
 
-
 #### Megaphone:
 - Converts all arguments to uppercase and prints them on the terminal.
 #### Phonebook:
@@ -69,6 +68,28 @@ Coded in
 - The program takes either: DEBUG, INFO, WARNING or ERROR.
 - It will then print all the levels above the given one, p. e: if INFO is input, Harl will print INFO, WARNING and ERROR.
 - As per the instructions, this is achieved with a switch statement.
+</details>
+
+<!-- ## CPP02: -->
+<details>
+<summary><b><span style="font-size: larger;">CPP02:</span></b></summary>
+
+#### My First Class in Orthodox Canonical Form:
+- Basic information about floating-point numbers to create a fixed-point number.
+- The first class with a default constructor, a destructor, a copy constructor and a copy assignment operator overload.
+#### Towards a more useful fixed-point number class:
+- Constructors taking an integer or a floating-point number.
+- Conversion from fixed point number to float or int.
+- Overloading the '<<' operator to correctly print a Fixed object.
+#### Now we're talking:
+- Implementing the standart operations (>, <, >=, <=, == and !=) for our fixed-point number.
+- The operations +,-,*,/ with our fixed-point number.
+- Pre and post in- and decrements.
+- Functions min and max to return the smallest/biggest number of two fixed-point numbers given.
+#### BSP:
+- Using the fixed-point numbers to indicate wether a point is inside a triangle or not.
+- A Class Point which implements a point object.
+- The function bsp which calculates if the point is inside the triangle.
 </details>
 
 ---
