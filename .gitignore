@@ -51,6 +51,8 @@ harlFilter
 fixed
 bsp
 
+# CPP03
+ClapTrap
 
 *.txt
 *.log
