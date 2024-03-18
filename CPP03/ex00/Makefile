@@ -4,7 +4,7 @@
 #                                    Config                                    #
 # ---------------------------------------------------------------------------- #
 
-NAME			:= bsp
+NAME			:= ClapTrap
 CPP				:= c++
 CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
@@ -14,7 +14,7 @@ CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR			:= ./objs
 
-SRC				:= main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRC				:= main.cpp ClapTrap.cpp
 
 SRCS			:= $(SRC)
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo $(GREEN)"Linking fixed"$(DEFAULT);
+	@echo $(GREEN)"Linking ClapTrap"$(DEFAULT);
 
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
