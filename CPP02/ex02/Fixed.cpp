@@ -145,6 +145,21 @@ Fixed	Fixed::operator++(int)
 	return (pinc);
 }
 
+Fixed&	Fixed::operator--()
+{
+	--(this->fix_val);
+
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	pinc(*this);
+
+	--(*this);
+	return (pinc);
+}
+
 Fixed&	Fixed::min(Fixed& f1, Fixed& f2)
 {
 	if (f1 <= f2)
