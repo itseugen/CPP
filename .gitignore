@@ -53,6 +53,7 @@ bsp
 
 # CPP03
 ClapTrap
+ScavTrap
 
 *.txt
 *.log
