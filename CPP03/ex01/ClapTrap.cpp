@@ -22,9 +22,9 @@ ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
 	std::cout << name << " (ClapTrap) constructed" << std::endl;
-	this->hit_points = 10;
-	this->energy_points = 10;
-	this->attack_damage = 0;
+	this->hit_points = 100;
+	this->energy_points = 50;
+	this->attack_damage = 20;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& ct)
@@ -104,4 +104,13 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << "ClapTrap " << this->name << " is out of energy and can't repair!" << std::endl;
 	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               EX01 Functions                               */
+/* -------------------------------------------------------------------------- */
+
+std::string	ClapTrap::getName(void)
+{
+	return (this->name);
 }
