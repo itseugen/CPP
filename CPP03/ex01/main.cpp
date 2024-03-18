@@ -1,21 +1,15 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	a("Steve");
-	ClapTrap	b("Oscar");
+	ScavTrap	a("Bob");
 
+	a.attack("Oscar");
+	a.takeDamage(12);
+	a.beRepaired(22);
 	a.attack("Conrad");
-	a.takeDamage(1);
-	a.takeDamage(5);
-	a.beRepaired(20);
-	a.beRepaired(15);
-	for (int i = 0; i < 8; i++)
-		a.attack("Conrad");
-	a.beRepaired(15);
-	b.takeDamage(100);
-	b.beRepaired(15);
-	b.attack("Bob");
-	b.takeDamage(23);
+	a.guardGate();
+	a.takeDamage(200);
+	a.beRepaired(10);
 	return (0);
 }
