@@ -22,6 +22,7 @@ class ClapTrap
 		unsigned int	getAttackDamage(void);
 		void			setEnergy(unsigned int amount);
 		void			setHitPoints(unsigned int amount);
+		void			setAttackDamage(unsigned int amount);
 
 		std::string	getName(void);
 	private:

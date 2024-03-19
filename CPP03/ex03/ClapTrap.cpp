@@ -148,3 +148,8 @@ void	ClapTrap::setHitPoints(unsigned int amount)
 {
 	this->hit_points = amount;
 }
+
+void	ClapTrap::setAttackDamage(unsigned int amount)
+{
+	this->attack_damage = amount;
+}

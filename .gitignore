@@ -55,6 +55,7 @@ bsp
 ClapTrap
 ScavTrap
 FragTrap
+DiamondTrap
 
 *.txt
 *.log

@@ -21,7 +21,7 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap &ft) : ClapTrap(ft)
 {
-	std::cout << "FragTrap copy constructor called";
+	std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &ft)

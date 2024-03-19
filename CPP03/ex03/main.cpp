@@ -6,6 +6,7 @@ int	main(void)
 
 	a.printVals();
 	a.attack("Oscar");
+	a.whoAmI();
 	a.takeDamage(12);
 	a.beRepaired(22);
 	a.attack("Conrad");
