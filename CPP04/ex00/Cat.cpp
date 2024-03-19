@@ -4,8 +4,9 @@
 /*                           Orthodox Canonical Form                          */
 /* -------------------------------------------------------------------------- */
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat()
 {
+	this->type = "Cat";
 	std::cout << "Cat Constructor called" << std::endl;
 }
 

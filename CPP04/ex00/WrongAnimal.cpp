@@ -38,7 +38,12 @@ WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &copy)
 	return (*this);
 }
 
-std::string	Animal::getType(void) const
+std::string	WrongAnimal::getType(void) const
 {
 	return (this->type);
+}
+
+void	WrongAnimal::makeSound(void) const
+{
+	std::cout << "Wrong Animal noises\n";
 }

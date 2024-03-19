@@ -13,7 +13,7 @@ class Animal
 	public:
 		Animal();
 		Animal(std::string type);
-		~Animal();
+		virtual ~Animal();
 		Animal(const Animal& copy);
 		Animal& operator=(const Animal& copy);
 

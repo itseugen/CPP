@@ -18,6 +18,7 @@ class WrongAnimal
 		WrongAnimal& operator=(const WrongAnimal& copy);
 
 		std::string		getType(void) const;
+		void			makeSound(void) const;
 };
 
 #endif /*WRONGANIMAL_HPP*/

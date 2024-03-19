@@ -6,7 +6,7 @@
 
 # include "WrongAnimal.hpp"
 
-class WrongCat : public WrongCat
+class WrongCat : public WrongAnimal
 {
 	private:
 		/*args*/
@@ -15,6 +15,8 @@ class WrongCat : public WrongCat
 		~WrongCat();
 		WrongCat(const WrongCat& copy);
 		WrongCat& operator=(const WrongCat& copy);
+
+		void	makeSound(void) const;
 };
 
 #endif /*WRONGCAT_HPP*/

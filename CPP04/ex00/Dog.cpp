@@ -4,9 +4,9 @@
 /*                           Orthodox Canonical Form                          */
 /* -------------------------------------------------------------------------- */
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog()
 {
-	// Animal::type = "Dog";
+	Animal::type = "Dog";
 	std::cout << "Dog Constructor called" << std::endl;
 }
 
