@@ -57,6 +57,9 @@ ScavTrap
 FragTrap
 DiamondTrap
 
+# CPP04
+polymorphism
+
 *.txt
 *.log
 Account.hpp
