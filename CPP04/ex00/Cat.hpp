@@ -2,8 +2,11 @@
 # define CAT_HPP
 
 # include <iostream>
+# include <string>
 
-class Cat
+# include "Animal.hpp"
+
+class Cat : public Animal
 {
 	private:
 		/*args*/

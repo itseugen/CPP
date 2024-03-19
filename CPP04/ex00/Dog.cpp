@@ -4,17 +4,18 @@
 /*                           Orthodox Canonical Form                          */
 /* -------------------------------------------------------------------------- */
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-	std::cout << "Default Constructor called" << std::endl;
+	// Animal::type = "Dog";
+	std::cout << "Dog Constructor called" << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Default Destructor called" << std::endl;
+	std::cout << "Dog Destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& copy)
+Dog::Dog(const Dog& copy) : Animal(copy)
 {
 	if (this != &copy)
 		*this = copy;
@@ -24,6 +25,16 @@ Dog&	Dog::operator=(const Dog &copy)
 {
 	if (this != &copy)
 	{
+		Animal::operator=(copy);
 	}
 	return (*this);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Functions                                 */
+/* -------------------------------------------------------------------------- */
+
+void	Dog::makeSound(void) const
+{
+	std::cout << "Wooof Wooof!\n";
 }

@@ -2,8 +2,11 @@
 # define DOG_HPP
 
 # include <iostream>
+# include <string>
 
-class Dog
+# include "Animal.hpp"
+
+class Dog : public Animal
 {
 	private:
 		/*args*/
@@ -12,6 +15,8 @@ class Dog
 		~Dog();
 		Dog(const Dog& copy);
 		Dog& operator=(const Dog& copy);
+
+		void	makeSound(void) const;
 };
 
 #endif /*DOG_HPP*/
