@@ -9,6 +9,8 @@ int	main(void)
 	a.whoAmI();
 	a.takeDamage(12);
 	a.beRepaired(22);
+	a.guardGate();
+	a.highFivesGuys();
 	a.attack("Conrad");
 	a.takeDamage(200);
 	a.beRepaired(10);
