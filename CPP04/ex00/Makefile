@@ -4,7 +4,7 @@
 #                                    Config                                    #
 # ---------------------------------------------------------------------------- #
 
-NAME			:= DiamondTrap
+NAME			:= polymorphism
 CPP				:= c++
 CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
@@ -14,7 +14,7 @@ CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR			:= ./objs
 
-SRC				:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC				:= main.cpp
 
 SRCS			:= $(SRC)
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo $(GREEN)"Linking DiamondTrap"$(DEFAULT);
+	@echo $(GREEN)"Linking polymorphism"$(DEFAULT);
 
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
