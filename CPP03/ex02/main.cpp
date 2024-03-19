@@ -8,9 +8,9 @@ int	main(void)
 	a.takeDamage(12);
 	a.beRepaired(22);
 	a.attack("Conrad");
-	a.guardGate();
-	
+	a.highFivesGuys();
 	a.takeDamage(200);
 	a.beRepaired(10);
+	a.highFivesGuys();
 	return (0);
 }

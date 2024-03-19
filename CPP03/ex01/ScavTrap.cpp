@@ -40,7 +40,10 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap &st)
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << this->getName() << " (ScavTrap) is now in gate keeper mode!" << std::endl;
+	if (getHitPoints() > 0)
+		std::cout << this->getName() << " (ScavTrap) is now in gate keeper mode!" << std::endl;
+	else
+		std::cout << getName() << " is dead and can't guard!" << std::endl;
 }
 
 void	ScavTrap::attack(const std::string& target)
