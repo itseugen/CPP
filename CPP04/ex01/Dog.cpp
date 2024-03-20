@@ -17,12 +17,12 @@ Dog::~Dog()
 	std::cout << "Dog Destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& copy) : Animal(copy)
+Dog::Dog(const Dog& copy) : Animal(copy), brain(new Brain(*(copy.brain)))
 {
 	if (this != &copy)
 	{
 		*this = copy;
-		*this->brain = *copy.brain;
+		// *this->brain = *copy.brain;
 	}
 }
 
@@ -31,7 +31,9 @@ Dog&	Dog::operator=(const Dog &copy)
 	if (this != &copy)
 	{
 		Animal::operator=(copy);
-		this->brain = copy.brain;
+		// this->brain = copy.brain;
+		delete brain; // Delete existing brain
+		brain = new Brain(*(copy.brain));
 	}
 	return (*this);
 }

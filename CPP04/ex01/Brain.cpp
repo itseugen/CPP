@@ -17,8 +17,12 @@ Brain::~Brain()
 Brain::Brain(const Brain& copy)
 {
 	std::cout << "Brain Copy Constructor called" << std::endl;
-	if (this != &copy)
-		*this = copy;
+	// if (this != &copy)
+	// 	*this = copy;
+	for (int i = 0; i < 100; i++)
+	{
+		this->ideas[i] = copy.ideas[i];
+	}
 }
 
 Brain&	Brain::operator=(const Brain &copy)
@@ -49,6 +53,7 @@ void	Brain::newIdea(const std::string idea)
 			this->ideas[i] = idea;
 			return ;
 		}
+		i++;
 	}
 	std::cout << "Brain is full of ideas, overriding newest idea!" << std::endl;
 	this->ideas[99] = idea;

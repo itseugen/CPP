@@ -17,12 +17,11 @@ Cat::~Cat()
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat& copy) : Animal(copy)
+Cat::Cat(const Cat& copy) : Animal(copy), brain(new Brain(*(copy.brain)))
 {
 	if (this != &copy)
 	{
 		*this = copy;
-		*this->brain = *copy.brain;
 	}
 }
 
@@ -31,7 +30,9 @@ Cat&	Cat::operator=(const Cat &copy)
 	if (this != &copy)
 	{
 		Animal::operator=(copy);
-		this->brain = copy.brain;
+		// this->brain = copy.brain;
+		delete brain; // Delete existing brain
+		brain = new Brain(*(copy.brain));
 	}
 	return (*this);
 }

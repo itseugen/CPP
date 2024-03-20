@@ -21,7 +21,7 @@ int	main(void)
 
 	// std::cout << d.getType() << std::endl;
 	// d.makeSound();
-	std::cout << "-----CORRECT ANIMAL-----\n";
+	std::cout << "-----TEST00-----\n";
 	const Animal*	meta = new Animal();
 	const Animal*	j = new Dog();
 	const Animal*	i = new Cat();
@@ -31,18 +31,30 @@ int	main(void)
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
-	i->add
-
-
 	delete j;
 	delete i;
 	delete meta;
 
-	// std::cout << "\n\n-----WRONG ANIMAL-----\n";
-	// const WrongAnimal *wrongAnimal = new WrongCat();
-	// std::cout << wrongAnimal->getType() << std::endl;
-	// wrongAnimal->makeSound();
+	std::cout << "\n\n-----TEST01-----\n";
+	Dog*	d = new Dog();
+	Dog*	c = new Dog();
 
-	// delete wrongAnimal;
+	d->newIdea("Woof0");
+	d->newIdea("Woof1");
+	d->newIdea("Woof2");
+	d->newIdea("Woof3");
+	d->printIdeas();
+	std::cout << "\n\n\n";
+	c = d;
+	c->printIdeas();
+	std::cout << "\n\n\n";
+	d->newIdea("Woof4");
+	// c->newIdea("Other woof");
+	d->printIdeas();
+	std::cout << "\n\n\n";
+	c->printIdeas();
+
+	delete d;
+	// delete c;
 	return (0);
 }
