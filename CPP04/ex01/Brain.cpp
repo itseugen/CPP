@@ -53,3 +53,24 @@ void	Brain::newIdea(std::string idea)
 	std::cout << "Brain is full of ideas, overriding newest idea!" << std::endl;
 	this->ideas[99] = idea;
 }
+
+void	Brain::printIdeas(void)
+{
+	int	i = 0;
+
+	while (!this->ideas[i].empty())
+	{
+		std::cout << "Idea " << i + 1 << ": " << this->ideas[i] << std::endl;
+		i++;
+	}
+}
+
+std::string	Brain::retIdea(int index)
+{
+	if (index < 0 || index > 99)
+	{
+		std::cout << "Index has to be between 0 and 99! Returning first idea!" << std::endl;
+		return (this->ideas[0]);
+	}
+	return (this->ideas[index]);
+}
