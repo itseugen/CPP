@@ -36,11 +36,11 @@ int	main(void)
 	delete i;
 	delete meta;
 
-	std::cout << "\n\n-----WRONG ANIMAL-----\n";
-	const WrongAnimal *wrongAnimal = new WrongCat();
-	std::cout << wrongAnimal->getType() << std::endl;
-	wrongAnimal->makeSound();
+	// std::cout << "\n\n-----WRONG ANIMAL-----\n";
+	// const WrongAnimal *wrongAnimal = new WrongCat();
+	// std::cout << wrongAnimal->getType() << std::endl;
+	// wrongAnimal->makeSound();
 
-	delete wrongAnimal;
+	// delete wrongAnimal;
 	return (0);
 }

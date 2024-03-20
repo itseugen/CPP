@@ -5,11 +5,12 @@
 # include <string>
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat : public Animal
 {
 	private:
-		/*args*/
+		Brain	*brain;
 	public:
 		Cat();
 		~Cat();

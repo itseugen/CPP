@@ -38,7 +38,7 @@ Brain&	Brain::operator=(const Brain &copy)
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-void	Brain::newIdea(std::string idea)
+void	Brain::newIdea(const std::string idea)
 {
 	int	i = 0;
 
@@ -54,7 +54,7 @@ void	Brain::newIdea(std::string idea)
 	this->ideas[99] = idea;
 }
 
-void	Brain::printIdeas(void)
+void	Brain::printIdeas(void) const
 {
 	int	i = 0;
 

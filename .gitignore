@@ -59,6 +59,7 @@ DiamondTrap
 
 # CPP04
 polymorphism
+deepcopy
 
 *.txt
 *.log

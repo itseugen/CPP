@@ -14,8 +14,8 @@ class Brain
 		Brain(const Brain& copy);
 		Brain& operator=(const Brain& copy);
 
-		void		newIdea(std::string idea);
-		void		printIdeas(void);
+		void		newIdea(const std::string idea);
+		void		printIdeas(void) const;
 		std::string	retIdea(int index);
 };
 
