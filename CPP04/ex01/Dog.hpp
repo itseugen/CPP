@@ -17,7 +17,10 @@ class Dog : public Animal
 		Dog(const Dog& copy);
 		Dog& operator=(const Dog& copy);
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
+		void		newIdea(const std::string idea);
+		void		printIdeas() const;
+		std::string	retIdea(int index);
 };
 
 #endif /*DOG_HPP*/

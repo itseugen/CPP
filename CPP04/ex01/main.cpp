@@ -31,6 +31,8 @@ int	main(void)
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	i->add
+
 
 	delete j;
 	delete i;

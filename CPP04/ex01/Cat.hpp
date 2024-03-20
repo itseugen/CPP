@@ -17,7 +17,10 @@ class Cat : public Animal
 		Cat(const Cat& copy);
 		Cat& operator=(const Cat& copy);
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
+		void		newIdea(const std::string idea);
+		void		printIdeas() const;
+		std::string	retIdea(int index);
 };
 
 #endif /*CAT_HPP*/
