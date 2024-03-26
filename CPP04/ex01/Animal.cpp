@@ -10,6 +10,7 @@ Animal::Animal()
 	this->type = "Uninitialzed";
 }
 
+//maybe make it virtual
 Animal::~Animal()
 {
 	std::cout << "Animal Destructor called" << std::endl;
@@ -21,10 +22,10 @@ Animal::Animal(std::string type)
 	this->type = type;
 }
 
-Animal::Animal(const Animal& copy)
+Animal::Animal(const Animal& copy) : type(copy.type)
 {
-	if (this != &copy)
-		*this = copy;
+	// if (this != &copy)
+	// 	*this = copy;
 }
 
 Animal&	Animal::operator=(const Animal &copy)

@@ -4,10 +4,9 @@
 /*                           Orthodox Canonical Form                          */
 /* -------------------------------------------------------------------------- */
 
-Cat::Cat()
+Cat::Cat() : brain(new Brain())
 {
 	this->type = "Cat";
-	this->brain = new Brain;
 	std::cout << "Cat Constructor called" << std::endl;
 }
 
@@ -19,10 +18,6 @@ Cat::~Cat()
 
 Cat::Cat(const Cat& copy) : Animal(copy), brain(new Brain(*(copy.brain)))
 {
-	if (this != &copy)
-	{
-		*this = copy;
-	}
 }
 
 Cat&	Cat::operator=(const Cat &copy)
@@ -30,8 +25,7 @@ Cat&	Cat::operator=(const Cat &copy)
 	if (this != &copy)
 	{
 		Animal::operator=(copy);
-		// this->brain = copy.brain;
-		delete brain; // Delete existing brain
+		delete brain;
 		brain = new Brain(*(copy.brain));
 	}
 	return (*this);

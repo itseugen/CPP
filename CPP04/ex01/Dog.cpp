@@ -4,10 +4,9 @@
 /*                           Orthodox Canonical Form                          */
 /* -------------------------------------------------------------------------- */
 
-Dog::Dog()
+Dog::Dog() : brain(new Brain())
 {
 	Animal::type = "Dog";
-	this->brain = new Brain;
 	std::cout << "Dog Constructor called" << std::endl;
 }
 
@@ -19,11 +18,6 @@ Dog::~Dog()
 
 Dog::Dog(const Dog& copy) : Animal(copy), brain(new Brain(*(copy.brain)))
 {
-	if (this != &copy)
-	{
-		*this = copy;
-		// *this->brain = *copy.brain;
-	}
 }
 
 Dog&	Dog::operator=(const Dog &copy)
@@ -31,8 +25,7 @@ Dog&	Dog::operator=(const Dog &copy)
 	if (this != &copy)
 	{
 		Animal::operator=(copy);
-		// this->brain = copy.brain;
-		delete brain; // Delete existing brain
+		delete brain;
 		brain = new Brain(*(copy.brain));
 	}
 	return (*this);

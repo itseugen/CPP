@@ -17,8 +17,6 @@ Brain::~Brain()
 Brain::Brain(const Brain& copy)
 {
 	std::cout << "Brain Copy Constructor called" << std::endl;
-	// if (this != &copy)
-	// 	*this = copy;
 	for (int i = 0; i < 100; i++)
 	{
 		this->ideas[i] = copy.ideas[i];
