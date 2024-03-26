@@ -6,11 +6,13 @@
 
 # include "IMateriaSource.hpp"
 # include "AMateria.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
 
 class MateriaSource : public IMateriaSource
 {
 	private:
-		/*args*/
+		AMateria	*mem[4];
 	public:
 		MateriaSource();
 		~MateriaSource();
