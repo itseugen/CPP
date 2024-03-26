@@ -60,6 +60,7 @@ DiamondTrap
 # CPP04
 polymorphism
 deepcopy
+abstract
 
 *.txt
 *.log
