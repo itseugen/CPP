@@ -36,7 +36,7 @@ Cure&	Cure::operator=(const Cure &copy)
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-AMateria*	Cure::clone()
+AMateria*	Cure::clone() const
 {
 	Cure*	a;
 

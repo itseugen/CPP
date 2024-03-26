@@ -9,10 +9,10 @@ AMateria::AMateria()
 	std::cout << "AMateria Constructor called" << std::endl;
 }
 
-AMateria::Amateria(std::string const & type)
+AMateria::AMateria(std::string const & type)
 {
-	std::cout << "AMateria Constructor called" << std::endl;
 	this->type = type;
+	std::cout << "AMateria Constructor called" << std::endl;
 }
 
 AMateria::~AMateria()
@@ -45,3 +45,8 @@ std::string const &	AMateria::getType() const
 {
 	return (this->type);
 }
+
+// AMateria*	AMateria::clone() const
+// {
+
+// }

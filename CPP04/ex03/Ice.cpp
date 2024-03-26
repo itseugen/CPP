@@ -36,7 +36,7 @@ Ice&	Ice::operator=(const Ice &copy)
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-AMateria*	Ice::clone()
+AMateria*	Ice::clone() const
 {
 	Ice*	a;
 
