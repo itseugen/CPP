@@ -24,8 +24,6 @@ Animal::Animal(std::string type)
 
 Animal::Animal(const Animal& copy) : type(copy.type)
 {
-	// if (this != &copy)
-	// 	*this = copy;
 }
 
 Animal&	Animal::operator=(const Animal &copy)
