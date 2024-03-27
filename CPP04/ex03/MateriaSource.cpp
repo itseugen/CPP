@@ -7,6 +7,8 @@
 MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource Constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		mem[i] = NULL;
 }
 
 MateriaSource::~MateriaSource()
@@ -14,7 +16,8 @@ MateriaSource::~MateriaSource()
 	std::cout << "MateriaSource Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		delete mem[i];
+		// if (mem[i])
+		// 	delete mem[i];
 	}
 }
 
@@ -52,7 +55,7 @@ void	MateriaSource::learnMateria(AMateria* learn)
 		{
 			this->mem[i] = learn;
 			std::cout << "Learned Materia on slot: " << i << std::endl;
-			break ;
+			return ;
 		}
 	}
 	std::cout << "Memory full, Materia wasn't learned!" << std::endl;

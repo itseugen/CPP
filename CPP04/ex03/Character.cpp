@@ -71,8 +71,8 @@ void	Character::equip(AMateria *m)
 		if (!this->inv[i])
 		{
 			this->inv[i] = m;
-			std::cout << this->name << ": Equiped item on slot: " << i << std::endl;
-			break ;
+			std::cout << this->name << ": Equiped item " << m->getType() << " on slot: " << i << std::endl;
+			return ;
 		}
 	}
 	std::cout << name << ": Inventory full, Item wasn't equiped!" << std::endl;
@@ -91,5 +91,6 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	AMateria::use(target);
+	std::cout << this->name;
+	this->inv[idx]->use(target);
 }

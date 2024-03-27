@@ -13,12 +13,12 @@ class Cure : public AMateria
 		/*args*/
 	public:
 		Cure();
-		~Cure();
 		Cure(const Cure& copy);
 		Cure& operator=(const Cure& copy);
+		virtual ~Cure();
 
-		AMateria*	clone() const;
-		void		use(ICharacter& target);
+		virtual AMateria*	clone() const;
+		virtual void		use(ICharacter& target);
 };
 
 #endif /*CURE_HPP*/

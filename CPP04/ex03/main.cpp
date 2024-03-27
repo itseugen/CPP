@@ -8,8 +8,18 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
+static void	test1(void);
+
 int main()
 {
+	test1();
+	system("leaks interface");
+	return 0;
+}
+
+static void	test1(void)
+{
+	std::cout << "------TEST01------\n";
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -25,5 +35,4 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	return 0;
 }

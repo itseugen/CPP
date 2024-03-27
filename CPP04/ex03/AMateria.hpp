@@ -5,6 +5,9 @@
 # include <string>
 
 // # include "ICharacter.hpp"
+// # include "Character.hpp"
+// class ICharacter;
+// class Character;
 class ICharacter;
 
 class AMateria
