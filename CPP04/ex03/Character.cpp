@@ -7,12 +7,16 @@
 Character::Character()
 {
 	this->name = "NoName";
+	for (int i = 0; i < 4; i++)
+		this->inv[i] = NULL;
 	std::cout << "Character Constructor called" << std::endl;
 }
 
 Character::Character(std::string name)
 {
 	this->name = name;
+	for (int i = 0; i < 4; i++)
+		this->inv[i] = NULL;
 	std::cout << "Character Constructor called" << std::endl;
 }
 
@@ -21,7 +25,8 @@ Character::~Character()
 	std::cout << "Character Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		delete inv[i];
+		// if (this->inv[i] != NULL)
+		// 	delete this->inv[i];
 	}
 }
 
@@ -91,6 +96,11 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
+	if (idx > 3 || idx < 0)
+	{
+		std::cout << "Invalid inventory index, input number between 0 and 3!\n";
+		return ;
+	}
 	std::cout << this->name;
 	this->inv[idx]->use(target);
 }
