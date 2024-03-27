@@ -21,6 +21,8 @@ MateriaSource::~MateriaSource()
 		if (this->mem[i] != NULL)
 			delete this->mem[i];
 	}
+	for (int i = 0; i < 4; i++)
+		this->mem[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& copy)
