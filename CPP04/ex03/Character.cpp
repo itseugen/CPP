@@ -28,6 +28,8 @@ Character::~Character()
 		// if (this->inv[i] != NULL)
 		// 	delete this->inv[i];
 	}
+	for (int i = 0; i < 4; i++)
+		this->inv[i] == NULL;
 }
 
 Character::Character(const Character& copy)
