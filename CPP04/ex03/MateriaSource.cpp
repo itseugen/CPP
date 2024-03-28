@@ -73,7 +73,8 @@ void	MateriaSource::learnMateria(AMateria* learn)
 			return ;
 		}
 	}
-	std::cout << "Memory full, Materia wasn't learned!" << std::endl;
+	std::cout << "Memory full, Materia wasn't learned! Deleting Materia!" << std::endl;
+	delete learn;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)
@@ -88,6 +89,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 				return (a);
 			}
 		}
+		std::cout << "Type Ice isn't learned and can't be created\n";
 	}
 	else if (type == "cure")
 	{
@@ -99,6 +101,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 				return (a);
 			}
 		}
+		std::cout << "Type Cure isn't learned and can't be created\n";
 	}
 	return (NULL);
 }

@@ -39,6 +39,8 @@ Character::~Character()
 		if (this->ground[i] != NULL)
 			delete this->ground[i];
 	}
+	for (int i = 0; i < 1024; i++)
+		this->ground[i] = NULL;
 }
 
 Character::Character(const Character& copy)
@@ -97,6 +99,7 @@ void	Character::equip(AMateria *m)
 		if (this->ground[i] == NULL)
 		{
 			this->ground[i] = m;
+			break ;
 		}
 	}
 }
@@ -127,6 +130,13 @@ void	Character::use(int idx, ICharacter& target)
 		std::cout << "Invalid inventory index, input number between 0 and 3!\n";
 		return ;
 	}
-	std::cout << this->name;
-	this->inv[idx]->use(target);
+	if (this->inv[idx])
+	{
+		std::cout << this->name;
+		this->inv[idx]->use(target);
+	}
+	else
+	{
+		std::cout << "Slot " << idx << " is empty!\n";
+	}
 }
