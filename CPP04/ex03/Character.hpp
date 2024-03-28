@@ -12,6 +12,7 @@ class Character : public ICharacter
 {
 	private:
 		AMateria	*inv[4];
+		AMateria	*ground[1024];
 		std::string	name;
 	public:
 		Character();

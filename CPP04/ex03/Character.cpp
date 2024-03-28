@@ -9,6 +9,8 @@ Character::Character()
 	this->name = "NoName";
 	for (int i = 0; i < 4; i++)
 		this->inv[i] = NULL;
+	for (int i = 0; i < 1024; i++)
+		this->ground[i] = NULL;
 	std::cout << "Character Constructor called" << std::endl;
 }
 
@@ -17,6 +19,8 @@ Character::Character(std::string name)
 	this->name = name;
 	for (int i = 0; i < 4; i++)
 		this->inv[i] = NULL;
+	for (int i = 0; i < 1024; i++)
+		this->ground[i] = NULL;
 	std::cout << "Character Constructor called" << std::endl;
 }
 
@@ -25,11 +29,16 @@ Character::~Character()
 	std::cout << "Character Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		// if (this->inv[i] != NULL)
-		// 	delete this->inv[i];
+		if (this->inv[i] != NULL)
+			delete this->inv[i];
 	}
 	for (int i = 0; i < 4; i++)
-		this->inv[i] == NULL;
+		this->inv[i] = NULL;
+	for (int i = 0; i < 1024; i++)
+	{
+		if (this->ground[i] != NULL)
+			delete this->ground[i];
+	}
 }
 
 Character::Character(const Character& copy)
@@ -83,6 +92,13 @@ void	Character::equip(AMateria *m)
 		}
 	}
 	std::cout << name << ": Inventory full, Item wasn't equiped!" << std::endl;
+	for (int i = 0; i < 1024; i++)
+	{
+		if (this->ground[i] == NULL)
+		{
+			this->ground[i] = m;
+		}
+	}
 }
 
 void	Character::unequip(int idx)
@@ -92,6 +108,14 @@ void	Character::unequip(int idx)
 		std::cout << name << ": ";
 		std::cout << "Intex out of bound, input number between 0 and 3!" << std::endl;
 		return ;
+	}
+	for (int i = 0; i < 1024; i++)
+	{
+		if (this->ground[i] == NULL)
+		{
+			this->ground[i] = this->inv[idx];
+			break ;
+		}
 	}
 	this->inv[idx] = NULL;
 }

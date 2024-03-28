@@ -84,7 +84,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		{
 			if (mem[i]->getType() == "ice")
 			{
-				AMateria*	a = mem[i];
+				AMateria*	a = new Ice();
 				return (a);
 			}
 		}
@@ -95,7 +95,7 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		{
 			if (mem[i]->getType() == "cure")
 			{
-				AMateria*	a = mem[i];
+				AMateria*	a = new Cure();
 				return (a);
 			}
 		}
