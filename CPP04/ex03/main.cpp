@@ -19,6 +19,7 @@ int main()
 	test2();
 	std::cout << "\n\n";
 	test3();
+	std::cout << "\n\n";
 	// system("leaks interface");
 	return 0;
 }
