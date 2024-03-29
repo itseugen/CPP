@@ -30,12 +30,12 @@ MateriaSource::MateriaSource(const MateriaSource& copy)
 	std::cout << "MateriaSource Copy Constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		mem[i] = NULL;
+		this->mem[i] = NULL;
 	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (copy.mem[i] != NULL)
-			this->mem[i] = copy.mem[i];
+			this->mem[i] = copy.mem[i]->clone();
 	}
 }
 
@@ -46,13 +46,14 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource &copy)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			delete this->mem[i];
+			if (this->mem[i] != NULL)
+				delete this->mem[i];
 			this->mem[i] = NULL;
 		}
 		for (int i = 0; i < 4; i++)
 		{
 			if (copy.mem[i] != NULL)
-				this->mem[i] = copy.mem[i];
+				this->mem[i] = copy.mem[i]->clone();
 		}
 	}
 	return (*this);

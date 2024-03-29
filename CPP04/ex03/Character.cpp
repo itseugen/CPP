@@ -46,15 +46,16 @@ Character::~Character()
 Character::Character(const Character& copy)
 {
 	std::cout << "Character Copy Constructor called" << std::endl;
-	if (this != &copy)
+	this->name = copy.name;
+	for (int i = 0; i < 4; i++)
 	{
-		*this = copy;
-		// for (int i = 0; i < 4; i++)
-		// {
-		// 	this->inv[i] = copy.inv[i];
-		// }
-		// this->name = copy.name;
+		if (copy.inv[i] != NULL)
+			this->inv[i] = copy.inv[i]->clone();
+		else
+			this->inv[i] = NULL;
 	}
+		for (int i = 0; i < 1024; i++)
+			this->ground[i] = NULL;
 }
 
 Character&	Character::operator=(const Character &copy)
@@ -64,10 +65,22 @@ Character&	Character::operator=(const Character &copy)
 	{
 		this->name = copy.name;
 		for (int i = 0; i < 4; i++)
-			delete inv[i];
+		{
+			if (this->inv[i] != NULL)
+				delete this->inv[i];
+		}
 		for (int i = 0; i < 4; i++)
 		{
-			this->inv[i] = copy.inv[i];
+			if (copy.inv[i] != NULL)
+				this->inv[i] = copy.inv[i]->clone();
+			else
+				this->inv[i] = NULL;
+		}
+		for (int i = 0; i < 1024; i++)
+		{
+			if (this->ground[i] != NULL)
+				delete this->ground[i];
+			this->ground[i] = NULL;
 		}
 	}
 	return (*this);
