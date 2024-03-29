@@ -92,24 +92,17 @@ static void	test3(void)
 static void	test4(void)
 {
 	std::cout << "------TEST04------\n";
-	ICharacter*	a = new Character("Conrad");
-	ICharacter*	b = new Character("Harsh");
 	IMateriaSource*	src = new MateriaSource();
-	IMateriaSource*	src2 = new MateriaSource();
 	src->learnMateria(new Ice());
-	src2 = src;
-	a->equip(src->createMateria("ice"));
-	b->equip(src2->createMateria("ice"));
 	src->learnMateria(new Cure());
-	a->equip(src->createMateria("cure"));
-	b->equip(src2->createMateria("cure"));
-	a->use(0, *b);
-	a->use(1, *b);
-	b->use(0, *b);
-	b->use(1, *b);
-	delete a;
-	delete b;
+	Character	a("Conrad");
+	a.equip(src->createMateria("ice"));
+	Character	b(a);
+	a.equip(src->createMateria("cure"));
+	a.use(0, b);
+	a.use(1, b);
+	b.use(0, a);
+	b.use(1, a);
 	delete src;
-	delete src2;
 }
 
