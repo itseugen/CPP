@@ -12,6 +12,7 @@ static void	test1(void);
 static void	test2(void);
 static void	test3(void);
 static void	test4(void);
+static void	test5(void);
 
 int main()
 {
@@ -23,7 +24,9 @@ int main()
 	std::cout << "\n\n";
 	test4();
 	std::cout << "\n\n";
-	system("leaks interface");
+	test5();
+	// std::cout << "\n\n";
+	// system("leaks interface");
 	return 0;
 }
 
@@ -106,3 +109,20 @@ static void	test4(void)
 	delete src;
 }
 
+static void	test5(void)
+{
+	std::cout << "------TEST04------\n";
+	IMateriaSource*	src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	Character	a("Conrad");
+	Character	b("Harsh");
+	a.equip(src->createMateria("ice"));
+	b = a;
+	a.equip(src->createMateria("cure"));
+	a.use(0, b);
+	a.use(1, b);
+	b.use(0, a);
+	b.use(1, a);
+	delete src;
+}
