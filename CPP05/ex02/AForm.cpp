@@ -47,12 +47,12 @@ AForm::AForm(std::string name, int sign_grade, int exec_grade) : name(name), sig
 		throw GradeTooLowException();
 }
 
-AForm::~AForm()
-{
-	std::cout << "Form Default Destructor called" << std::endl;
-}
+// AForm::~AForm()
+// {
+// 	std::cout << "Form Default Destructor called" << std::endl;
+// }
 
-AForm::AForm(const Form& copy) : name(copy.getName()), sign_grade(copy.getSignGrade()), exec_grade(copy.getExecGrade()), sign(copy.getSign())
+AForm::AForm(const AForm& copy) : name(copy.getName()), sign_grade(copy.getSignGrade()), exec_grade(copy.getExecGrade()), sign(copy.getSign())
 {
 	std::cout << "Form Copy Constructor called" << std::endl;
 	if (this != &copy)
@@ -60,7 +60,7 @@ AForm::AForm(const Form& copy) : name(copy.getName()), sign_grade(copy.getSignGr
 	}
 }
 
-AForm&	AForm::operator=(const Form &copy)
+AForm&	AForm::operator=(const AForm &copy)
 {
 	std::cout << "Form Assignment operator called" << std::endl;
 	if (this != &copy)
@@ -94,7 +94,7 @@ int	AForm::getExecGrade(void) const
 	return (this->exec_grade);
 }
 
-std::ostream& operator<<(std::ostream&out, const Form& f)
+std::ostream& operator<<(std::ostream&out, const AForm& f)
 {
 	out << "The form " << f.getName() << " is ";
 	if (f.getSign() == true)
@@ -110,17 +110,12 @@ std::ostream& operator<<(std::ostream&out, const Form& f)
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-void	AForm::beSigned(const Bureaucrat& b)
-{
-	if (getSign() == true)
-	{
-		// std::cout << "Form " << this->getName() << " is already signed!\n";
-		// return ;
-		throw FormAlreadySignedException();
-	}
-	if (b.getGrade() > this->getSignGrade())
-		throw GradeTooLowException();
-	else
-		this->sign = true;
-	// std::cout << b.getName() << " signed " << this->getName() << ".\n";
-}
+// void	AForm::beSigned(const Bureaucrat& b)
+// {
+// 	if (getSign() == true)
+// 		throw FormAlreadySignedException();
+// 	if (b.getGrade() > this->getSignGrade())
+// 		throw GradeTooLowException();
+// 	else
+// 		this->sign = true;
+// }
