@@ -14,7 +14,7 @@ CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR			:= ./objs
 
-SRC				:= main.cpp Bureaucrat.cpp
+SRC				:= main.cpp Bureaucrat.cpp Form.cpp
 
 SRCS			:= $(SRC)
 
