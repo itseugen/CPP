@@ -4,6 +4,10 @@
 # include <iostream>
 # include <string>
 
+# include "Form.hpp"
+
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -23,6 +27,8 @@ class Bureaucrat
 		int					getGrade(void) const;
 		void				incGrade(void);
 		void				decGrade(void);
+
+		void				signForm(Form& f);
 };
 
 std::ostream& operator<<(std::ostream&out, const Bureaucrat& b);

@@ -4,7 +4,7 @@
 #                                    Config                                    #
 # ---------------------------------------------------------------------------- #
 
-NAME			:= bureaucrat
+NAME			:= form
 CPP				:= c++
 CPPFLAGS		:= -Wall -Wextra -Werror -std=c++98
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
-	@echo $(GREEN)"Linking bureaucrat!"$(DEFAULT);
+	@echo $(GREEN)"Linking form!"$(DEFAULT);
 
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)

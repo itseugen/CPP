@@ -1,17 +1,18 @@
 #include "Bureaucrat.hpp"
 
 static void	basicTest(void);
-static void	failPro_deMotionTest(void);
-static void	workPro_deMotionTest(void);
+static void	failSign(void);
+static void	workSign(void);
 static void	overloadTest(void);
 
 int	main(void)
 {
 	std::cout << "Basic Test:\n";
 	basicTest();
-	std::cout << "\nFailing Pro/Demotion Test:\n";
-	failPro_deMotionTest();
-	workPro_deMotionTest();
+	std::cout << "\nFailing Signing Test:\n";
+	failSign();
+	std::cout << "\nWorking Signing Test:\n";
+	workSign();
 	std::cout << "\nOverload Test:\n";
 	overloadTest();
 	return (0);
@@ -21,7 +22,7 @@ static void	basicTest(void)
 {
 	try
 	{
-		Bureaucrat	highGradeBureaucrat("HighGrade", 0);
+		Form	highGradeForm("HighGrade", 0, 2);
 	}
 	catch (const std::exception& e)
 	{
@@ -29,7 +30,7 @@ static void	basicTest(void)
 	}
 	try
 	{
-		Bureaucrat	lowGradeBureaucrat("LowGrade", 151);
+		Form	lowGradeForm("LowGrade", 12, 151);
 	}
 	catch (const std::exception& e)
 	{
@@ -37,7 +38,7 @@ static void	basicTest(void)
 	}
 	try
 	{
-		Bureaucrat	workingGradeBureaucrat("WorkingGrade", 43);
+		Form	workingForm("WorkingForm", 43, 1);
 	}
 	catch (const std::exception& e)
 	{
@@ -45,16 +46,14 @@ static void	basicTest(void)
 	}
 }
 
-static void	failPro_deMotionTest(void)
+static void	failSign(void)
 {
 	try
 	{
-		Bureaucrat	promotionBureaucrat("Promotion", 1);
+		Form		a("Financial Support", 1, 3);
+		Bureaucrat	b("Bob", 34);
 
-	std::cout << "Old Grade: " << promotionBureaucrat.getGrade() << std::endl;
-	std::cout << "Promotion is starting:\n";
-	promotionBureaucrat.incGrade();
-	std::cout << "New Grade: " << promotionBureaucrat.getGrade() << std::endl;
+		b.signForm(a);
 	}
 	catch(const std::exception& e)
 	{
@@ -62,12 +61,11 @@ static void	failPro_deMotionTest(void)
 	}
 	try
 	{
-		Bureaucrat	demotionBureaucrat("Demotion", 150);
+		Form		a("Child Support", 56, 56);
+		Bureaucrat	b("Bob", 34);
 
-		std::cout << "Old Grade: " << demotionBureaucrat.getGrade() << std::endl;
-		std::cout << "Demotion is starting:\n";
-		demotionBureaucrat.decGrade();
-		std::cout << "New Grade: " << demotionBureaucrat.getGrade() << std::endl;
+		b.signForm(a);
+		b.signForm(a);
 	}
 	catch(const std::exception& e)
 	{
@@ -75,29 +73,16 @@ static void	failPro_deMotionTest(void)
 	}
 }
 
-static void	workPro_deMotionTest(void)
+static void	workSign(void)
 {
 	try
 	{
-		Bureaucrat	promotionBureaucrat("Promotion", 4);
+		Form		a("Declaration of War", 1, 1);
+		Bureaucrat	b("Biden", 1);
 
-		std::cout << "Old Grade: " << promotionBureaucrat.getGrade() << std::endl;
-		std::cout << "Promotion is starting:\n";
-		promotionBureaucrat.incGrade();
-		std::cout << "New Grade: " << promotionBureaucrat.getGrade() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << '\n';
-	}
-	try
-	{
-		Bureaucrat	demotionBureaucrat("Demotion", 100);
-
-		std::cout << "Old Grade: " << demotionBureaucrat.getGrade() << std::endl;
-		std::cout << "Demotion is starting:\n";
-		demotionBureaucrat.decGrade();
-		std::cout << "New Grade: " << demotionBureaucrat.getGrade() << std::endl;
+		std::cout << a << "\n";
+		std::cout << b << "\n";
+		b.signForm(a);
 	}
 	catch(const std::exception& e)
 	{
@@ -109,9 +94,9 @@ static void	overloadTest(void)
 {
 	try
 	{
-		Bureaucrat	a("Bob", 100);
-		Bureaucrat	a2(a);
-		Bureaucrat	a3;
+		Form	a("Declaration of War", 1, 1);
+		Form	a2(a);
+		Form	a3;
 
 		a3 = a;
 		std::cout << a << std::endl;

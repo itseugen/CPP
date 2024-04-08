@@ -101,3 +101,22 @@ std::ostream& operator<<(std::ostream&out, const Bureaucrat& b)
 	out << b.getName() << ", Grade: " << b.getGrade();
 	return (out);
 }
+
+void	Bureaucrat::signForm(Form& f)
+{
+	// if (f.getSign() == true)
+	// 	std::cout << this->getName() << " couldn't sign the " << f.getName() << " because it is already signed!\n";
+	// else if (f.getSignGrade() < this->getGrade())
+	// 	std::cout << this->getName() << " couldn't sign the " << f.getName() << " because it's grade is too low!\n";
+	// else
+	// 	std::cout << this->getName() << " signed the " << f.getName() << "!\n";
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->getName() << " signed the " << f.getName() << "!\n";
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign the " << f.getName() << " because " << e.what() << "\n";
+	}
+}
