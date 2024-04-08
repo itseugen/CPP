@@ -94,11 +94,13 @@ static void	overloadTest(void)
 {
 	try
 	{
-		Form	a("Declaration of War", 1, 1);
-		Form	a2(a);
-		Form	a3;
+		Form		a("Declaration of War", 1, 1);
+		Form		a2(a);
+		Form		a3;
+		Bureaucrat	b("Biden", 1);
 
 		a3 = a;
+		b.signForm(a);
 		std::cout << a << std::endl;
 		std::cout << a2 << std::endl;
 		std::cout << a3 << std::endl;
