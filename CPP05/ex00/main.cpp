@@ -11,6 +11,7 @@ int	main(void)
 	basicTest();
 	std::cout << "\nFailing Pro/Demotion Test:\n";
 	failPro_deMotionTest();
+	std::cout << "\nWorking Pro/Demotion Test:\n";
 	workPro_deMotionTest();
 	std::cout << "\nOverload Test:\n";
 	overloadTest();
