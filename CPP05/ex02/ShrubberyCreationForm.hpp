@@ -8,8 +8,6 @@
 # include "AForm.hpp"
 
 class AForm;
-// class FormNotSignedException;
-// class GradeTooLowException;
 
 class ShrubberyCreationForm : public AForm
 {
