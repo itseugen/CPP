@@ -8,7 +8,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	name;
@@ -16,11 +16,11 @@ class Form
 		const int			exec_grade;
 		bool				sign;
 	public:
-		Form();
-		Form(std::string name, int sign_grade, int exec_grade);
-		~Form();
-		Form(const Form& copy);
-		Form& operator=(const Form& copy);
+		AForm();
+		AForm(std::string name, int sign_grade, int exec_grade);
+		~AForm();
+		AForm(const Form& copy);
+		AForm& operator=(const Form& copy);
 
 		class	GradeTooHighException;
 		class	GradeTooLowException;
