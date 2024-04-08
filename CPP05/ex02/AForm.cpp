@@ -4,30 +4,37 @@
 /*                                 Exceptions                                 */
 /* -------------------------------------------------------------------------- */
 
-class	AForm::GradeTooHighException : public std::exception
-{
-	virtual const char*	what() const throw()
-	{
-		return ("Grade is too high!");
-	}
-};
+// class	AForm::GradeTooHighException : public std::exception
+// {
+// 	virtual const char*	what() const throw()
+// 	{
+// 		return ("Grade is too high!");
+// 	}
+// };
 
-class AForm::GradeTooLowException : public std::exception
-{
-	virtual const char*	what() const throw()
-	{
-		return ("Grade is too low!");
-	}
-};
+// class	AForm::GradeTooLowException : public std::exception
+// {
+// 	virtual const char*	what() const throw()
+// 	{
+// 		return ("Grade is too low!");
+// 	}
+// };
 
-class	AForm::FormAlreadySignedException : public std::exception
-{
-	virtual const char*	what() const throw()
-	{
-		return ("the Form is already signed!");
-	}
-};
+// class	AForm::FormAlreadySignedException : public std::exception
+// {
+// 	virtual const char*	what() const throw()
+// 	{
+// 		return ("the Form is already signed!");
+// 	}
+// };
 
+// class	AForm::FormNotSignedException : public std::exception
+// {
+// 	virtual const char*	what() const throw()
+// 	{
+// 		return ("the Form is not signed!");
+// 	}
+// };
 
 /* -------------------------------------------------------------------------- */
 /*                           Orthodox Canonical Form                          */
@@ -47,10 +54,10 @@ AForm::AForm(std::string name, int sign_grade, int exec_grade) : name(name), sig
 		throw GradeTooLowException();
 }
 
-// AForm::~AForm()
-// {
-// 	std::cout << "Form Default Destructor called" << std::endl;
-// }
+AForm::~AForm()
+{
+	std::cout << "Form Default Destructor called" << std::endl;
+}
 
 AForm::AForm(const AForm& copy) : name(copy.getName()), sign_grade(copy.getSignGrade()), exec_grade(copy.getExecGrade()), sign(copy.getSign())
 {
@@ -110,12 +117,12 @@ std::ostream& operator<<(std::ostream&out, const AForm& f)
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-// void	AForm::beSigned(const Bureaucrat& b)
-// {
-// 	if (getSign() == true)
-// 		throw FormAlreadySignedException();
-// 	if (b.getGrade() > this->getSignGrade())
-// 		throw GradeTooLowException();
-// 	else
-// 		this->sign = true;
-// }
+void	AForm::beSigned(const Bureaucrat& b)
+{
+	if (getSign() == true)
+		throw FormAlreadySignedException();
+	if (b.getGrade() > this->getSignGrade())
+		throw GradeTooLowException();
+	else
+		this->sign = true;
+}

@@ -3,10 +3,13 @@
 
 # include <iostream>
 # include <string>
+# include <fstream>
 
 # include "AForm.hpp"
 
 class AForm;
+// class FormNotSignedException;
+// class GradeTooLowException;
 
 class ShrubberyCreationForm : public AForm
 {
@@ -18,6 +21,12 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& copy);
+
+		class	OpenFailedException;
+
+		void		executeForm(Bureaucrat const & exec) const;
 };
+
+std::string	asciiTree1(void);
 
 #endif /*SHRUBBERYCREATIONFORM_HPP*/
