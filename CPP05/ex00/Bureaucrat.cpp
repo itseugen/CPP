@@ -1,20 +1,44 @@
 #include "Bureaucrat.hpp"
 
 /* -------------------------------------------------------------------------- */
+/*                                 Exceptions                                 */
+/* -------------------------------------------------------------------------- */
+
+class	Bureaucrat::GradeTooHighException : public std::exception
+{
+	virtual const char*	what() const throw()
+	{
+		return ("Grade is too high!");
+	}
+};
+
+class Bureaucrat::GradeTooLowException : public std::exception
+{
+	virtual const char*	what() const throw()
+	{
+		return ("Grade is too low!");
+	}
+};
+
+/* -------------------------------------------------------------------------- */
 /*                           Orthodox Canonical Form                          */
 /* -------------------------------------------------------------------------- */
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("DefaultName")
 {
 	std::cout << "Bureaucrat Default Constructor called" << std::endl;
-	this->name = "DefaultName";
+	// this->name = "DefaultName";
 	this->grade = 150;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
 	std::cout << "Bureaucrat Param Constructor called" << std::endl;
-	this->name = name;
+	// this->name = name;
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
 	this->grade = grade;
 }
 
@@ -23,12 +47,12 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat Default Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.getName())
 {
 	std::cout << "Bureaucrat Copy Constructor called" << std::endl;
 	if (this != &copy)
 	{
-		this->name = copy.name;
+		// this->name = copy.getName();
 		this->grade = copy.grade;
 	}
 }
@@ -38,18 +62,42 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &copy)
 	std::cout << "Bureaucrat Assignment operator called" << std::endl;
 	if (this != &copy)
 	{
-		this->name = copy.name;
+		// this->name = copy.name;
 		this->grade = copy.grade;
 	}
 	return (*this);
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  Functions                                 */
+/* -------------------------------------------------------------------------- */
 
 const std::string	Bureaucrat::getName(void) const
 {
 	return (this->name);
 }
 
-const int	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (this->grade);
+}
+
+void	Bureaucrat::incGrade(void)
+{
+	this->grade -= 1;
+	if (this->grade < 1)
+		throw GradeTooHighException();
+}
+
+void	Bureaucrat::decGrade(void)
+{
+	this->grade += 1;
+	if (this->grade > 150)
+		throw GradeTooLowException();
+}
+
+std::ostream& operator<<(std::ostream&out, const Bureaucrat& b)
+{
+	out << b.getName() << ", Grade: " << b.getGrade();
+	return (out);
 }

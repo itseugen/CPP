@@ -63,6 +63,9 @@ deepcopy
 abstract
 interface
 
+# CPP05
+bureaucrat
+
 *.txt
 *.log
 Account.hpp
