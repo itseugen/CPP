@@ -68,6 +68,9 @@ bureaucrat
 form
 *_shrubbery
 
+# CPP06
+conversion
+
 *.txt
 *.log
 Account.hpp
