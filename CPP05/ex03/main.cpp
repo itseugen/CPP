@@ -2,35 +2,26 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
-static void	shrubberyTest(void);
-static void	robotomyTest(void);
-static void	presidentialTest(void);
-static void	overloadTest(void);
+static void	internTest(void);
 
 int	main(void)
 {
-	std::cout << "Shrubbery Test:\n";
-	shrubberyTest();
-	std::cout << "\nRobotomy Test:\n";
-	robotomyTest();
-	std::cout << "\nPresidential Pardon Test:\n";
-	presidentialTest();
-	std::cout << "\nOverload Test:\n";
-	overloadTest();
+	std::cout << "Intern Test:\n";
+	internTest();
 	return (0);
 }
 
-static void	shrubberyTest(void)
+static void	internTest(void)
 {
 	try
 	{
-		ShrubberyCreationForm	a("Wonderful");
-		Bureaucrat				tooLow("Bob", 150);
-		Bureaucrat				b("Steve", 5);
+		std::cout << "Test 01:\n";
+		Intern	a;
+		AForm	*b = a.makeForm("IDontExist", "Bob");
 
-		tooLow.executeForm(a);
-		b.executeForm(a);
+		delete	b;
 	}
 	catch (const std::exception& e)
 	{
@@ -38,99 +29,25 @@ static void	shrubberyTest(void)
 	}
 	try
 	{
-		ShrubberyCreationForm	a("Wonderful");
-		Bureaucrat				tooLow("Bob", 150);
-		Bureaucrat				b("Steve", 5);
+		std::cout << "\n\nTest 02:\n";
+		Intern	a;
 
-		tooLow.signForm(a);
-		b.signForm(a);
-		b.signForm(a);
-		tooLow.signForm(a);
-		tooLow.executeForm(a);
-		b.executeForm(a);
+		AForm	*b = a.makeForm("PresidentialPardonForm", "Al Capone");
+		AForm	*c = a.makeForm("RobotomyRequestForm", "Voldemort");
+		AForm	*d = a.makeForm("ShrubberyCreationForm", "Planet Earth");
+
+		Bureaucrat	e("Obama", 1);
+		e.signForm(*b);
+		e.signForm(*c);
+		e.signForm(*d);
+		e.executeForm(*b);
+		e.executeForm(*c);
+		e.executeForm(*d);
+		delete b;
+		delete c;
+		delete d;
 	}
 	catch (const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-}
-
-static void	robotomyTest(void)
-{
-	try
-	{
-		RobotomyRequestForm	a("Darth Vader");
-		Bureaucrat			tooLow("Han Solo", 73);
-		Bureaucrat			b("Luke Skywalker", 2);
-
-		tooLow.executeForm(a);
-		b.executeForm(a);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	try
-	{
-		RobotomyRequestForm	a("Darth Vader");
-		RobotomyRequestForm	p("Palpatine");
-		Bureaucrat			tooLow("Han Solo", 73);
-		Bureaucrat			b("Luke Skywalker", 2);
-
-		tooLow.signForm(a);
-		b.signForm(a);
-		b.signForm(a);
-		b.signForm(p);
-		tooLow.signForm(a);
-		tooLow.executeForm(a);
-		b.executeForm(a);
-		b.executeForm(a);
-		b.executeForm(a);
-		b.executeForm(p);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-}
-
-static void	presidentialTest(void)
-{
-	try
-	{
-		PresidentialPardonForm	a("D. B. Cooper");
-		Bureaucrat				tooLow("Bob", 30);
-		Bureaucrat				pres("Zaphob Beeblebrox", 1);
-
-		tooLow.executeForm(a);
-		pres.executeForm(a);
-		tooLow.signForm(a);
-		pres.signForm(a);
-		tooLow.executeForm(a);
-		pres.executeForm(a);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-}
-
-static void	overloadTest(void)
-{
-	try
-	{
-		ShrubberyCreationForm	a("Wonderful");
-		ShrubberyCreationForm	b(a);
-		ShrubberyCreationForm	c;
-		Bureaucrat				d("Biden", 1);
-
-		d.signForm(a);
-		c = a;
-		d.executeForm(a);
-		d.executeForm(b);
-		d.executeForm(c);
-	}
-	catch(const std::exception& e)
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
