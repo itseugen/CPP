@@ -5,8 +5,8 @@
 
 static void	shrubberyTest(void);
 static void	robotomyTest(void);
-// static void	workSign(void);
-// static void	overloadTest(void);
+static void	presidentialTest(void);
+static void	overloadTest(void);
 
 int	main(void)
 {
@@ -14,10 +14,10 @@ int	main(void)
 	shrubberyTest();
 	std::cout << "\nRobotomy Test:\n";
 	robotomyTest();
-	// std::cout << "\nWorking Signing Test:\n";
-	// workSign();
-	// std::cout << "\nOverload Test:\n";
-	// overloadTest();
+	std::cout << "\nPresidential Pardon Test:\n";
+	presidentialTest();
+	std::cout << "\nOverload Test:\n";
+	overloadTest();
 	return (0);
 }
 
@@ -89,6 +89,48 @@ static void	robotomyTest(void)
 		b.executeForm(p);
 	}
 	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+}
+
+static void	presidentialTest(void)
+{
+	try
+	{
+		PresidentialPardonForm	a("D. B. Cooper");
+		Bureaucrat				tooLow("Bob", 30);
+		Bureaucrat				pres("Zaphob Beeblebrox", 1);
+
+		tooLow.executeForm(a);
+		pres.executeForm(a);
+		tooLow.signForm(a);
+		pres.signForm(a);
+		tooLow.executeForm(a);
+		pres.executeForm(a);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+}
+
+static void	overloadTest(void)
+{
+	try
+	{
+		ShrubberyCreationForm	a("Wonderful");
+		ShrubberyCreationForm	b(a);
+		ShrubberyCreationForm	c;
+		Bureaucrat				d("Biden", 1);
+
+		d.signForm(a);
+		c = a;
+		d.executeForm(a);
+		d.executeForm(b);
+		d.executeForm(c);
+	}
+	catch(const std::exception& e)
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
