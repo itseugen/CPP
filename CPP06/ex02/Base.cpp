@@ -31,11 +31,25 @@ Base*	Base::generate(void)
 
 void	Base::identify(Base* p)
 {
+	std::cout << "Called pointer identifier!\n";
 	if (dynamic_cast<A*>(p) != NULL)
 		std::cout << "Object has type A!\n";
 	else if (dynamic_cast<B*>(p) != NULL)
 		std::cout << "Object has type B!\n";
 	else if (dynamic_cast<C*>(p) != NULL)
+		std::cout << "Object has type C!\n";
+	else
+		std::cout << "Object has unknown type!\n";
+}
+
+void	Base::identify(Base& p)
+{
+	std::cout << "Called reference identifier!\n";
+	if (dynamic_cast<A*>(&p) != NULL)
+		std::cout << "Object has type A!\n";
+	else if (dynamic_cast<B*>(&p) != NULL)
+		std::cout << "Object has type B!\n";
+	else if (dynamic_cast<C*>(&p) != NULL)
 		std::cout << "Object has type C!\n";
 	else
 		std::cout << "Object has unknown type!\n";

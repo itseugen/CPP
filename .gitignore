@@ -71,6 +71,7 @@ form
 # CPP06
 conversion
 serializer
+base
 
 *.txt
 *.log

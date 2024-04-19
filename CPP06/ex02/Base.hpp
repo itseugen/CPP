@@ -6,8 +6,6 @@
 # include <cstdlib>
 # include <ctime>
 
-# include "ABC.hpp"
-
 class Base
 {
 	private:
