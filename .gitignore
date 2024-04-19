@@ -70,6 +70,7 @@ form
 
 # CPP06
 conversion
+serializer
 
 *.txt
 *.log
