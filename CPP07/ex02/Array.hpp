@@ -4,4 +4,30 @@
 # include <iostream>
 # include <string>
 
+# include "Array.tpp"
+
+template <class T>
+class Array
+{
+	private:
+		T*		arr;
+		size_t	arr_size;
+	public:
+		Array();
+		~Array();
+		Array(const Array<T>& copy);
+		Array& operator=(const Array<T>& copy);
+		Array(unsigned int n);
+
+		size_t	size(void);
+
+		class OutOfBound : std::exception
+		{
+			virtual const char*	what() const throw()
+			{
+				return ("trying to access Array out of bound!");
+			}
+		};
+};
+
 #endif /*ARRAY_HPP*/
