@@ -52,10 +52,10 @@ static void	failPro_deMotionTest(void)
 	{
 		Bureaucrat	promotionBureaucrat("Promotion", 1);
 
-	std::cout << "Old Grade: " << promotionBureaucrat.getGrade() << std::endl;
-	std::cout << "Promotion is starting:\n";
-	promotionBureaucrat.incGrade();
-	std::cout << "New Grade: " << promotionBureaucrat.getGrade() << std::endl;
+		std::cout << "Old Grade: " << promotionBureaucrat.getGrade() << std::endl;
+		std::cout << "Promotion is starting:\n";
+		promotionBureaucrat.incGrade();
+		std::cout << "New Grade: " << promotionBureaucrat.getGrade() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
