@@ -73,6 +73,9 @@ conversion
 serializer
 base
 
+# CPP07
+template
+
 *.txt
 *.log
 Account.hpp
