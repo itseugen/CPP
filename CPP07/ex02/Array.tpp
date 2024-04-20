@@ -1,9 +1,6 @@
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
 
-# include <iostream>
-# include <string>
-
 template <typename T>
 Array<T>::Array()
 {
@@ -14,15 +11,16 @@ Array<T>::Array()
 template <typename T>
 Array<T>::~Array()
 {
-	delete[] this->arr;
+	if (this->arr)
+		delete[] this->arr;
 }
 
 template <typename T>
-Array<T>::Array(const Array<T> copy)
+Array<T>::Array(const Array<T>& copy)
 {
 	this->arr_size = copy.arr_size;
-	this->arr = new[this->arr_size];
-	for (int i = 0; i < this->arr_size; i++)
+	this->arr = new T[this->arr_size];
+	for (size_t i = 0; i < this->arr_size; i++)
 	{
 		this->arr[i] = copy.arr[i];
 	}
@@ -35,8 +33,8 @@ Array<T>& Array<T>::operator=(const Array<T>& copy)
 	{
 		delete[] this->arr;
 		this->arr_size = copy.arr_size;
-		this->arr = new[this->arr_size];
-		for (int i = 0; i < this->arr_size; i++)
+		this->arr = new T[this->arr_size];
+		for (size_t i = 0; i < this->arr_size; i++)
 			this->arr[i] = copy.arr[i];
 	}
 	return (*this);
@@ -45,20 +43,20 @@ Array<T>& Array<T>::operator=(const Array<T>& copy)
 template <typename T>
 Array<T>::Array(unsigned int n)
 {
-	this->arr = new[n]
+	this->arr = new T[n];
 	this->arr_size = n;
 }
 
 template <typename T>
-size_t	Array<T>::Array(void)
+size_t	Array<T>::size(void) const
 {
 	return (this->arr_size);
 }
 
 template <typename T>
-const T&	Array<T>::operator[](size_t index) const
+T&	Array<T>::operator[](size_t index)
 {
-	if (index > size - 1)
+	if (index > size() - 1)
 		throw OutOfBoundException();
 	else if (index < 0)
 		throw OutOfBoundException();

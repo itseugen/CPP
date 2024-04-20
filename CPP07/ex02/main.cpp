@@ -1,15 +1,24 @@
 #include <iostream>
 #include <string>
 
-#include "iter.hpp"
+#include "Array.hpp"
 
 static void	test01(void);
 static void	test02(void);
 static void	incr(int& i);
-static void	print(int i);
-static void	print_str(std::string i);
 static void	squareRoot(int &i);
-static void	str_toUpper(std::string& str);
+
+template <typename T>
+void	printArr(Array<T> arr)
+{
+	for (size_t i = 0; i < arr.size(); i++)
+	{
+		std::cout << arr[i];
+		if (i != arr.size() - 1)
+			std::cout << ", ";
+	}
+	std::cout << std::endl;
+}
 
 int main(void)
 {
@@ -22,24 +31,24 @@ int main(void)
 
 static void	test01(void)
 {
-	int	arr[] = {0, 1, 2, 3, 4};
-
-	::iter(arr, 5, print);
-	std::cout << "Increment:\n";
-	::iter(arr, 5, incr);
-	::iter(arr, 5, print);
-	std::cout << "\nSquare Root:\n";
-	::iter(arr, 5, squareRoot);
-	::iter(arr, 5, print);
+	Array<int>	arr(20);
+	printArr(arr);
+	for (size_t i = 0; i < arr.size(); i++)
+		arr[i] = i;
+	printArr(arr);
 }
 
 static void	test02(void)
 {
-	std::string	arr[] = {"I", "am", "your", "father", "!"};
-
-	::iter(arr, 5, print_str);
-	::iter(arr, 5, str_toUpper);
-	::iter(arr, 5, print_str);
+	Array<int>	arr(20);
+	for (size_t i = 0; i < arr.size(); i++)
+		arr[i] = i;
+	for (size_t i = 0; i < arr.size(); i++)
+		incr(arr[i]);
+	printArr(arr);
+	for (size_t i = 0; i < arr.size(); i++)
+		squareRoot(arr[i]);
+	printArr(arr);
 }
 
 static void	incr(int& i)
@@ -47,23 +56,8 @@ static void	incr(int& i)
 	i = i + 1;
 }
 
-static void	print(int i)
-{
-	std::cout << i << std::endl;
-}
-
-static void	print_str(std::string i)
-{
-	std::cout << i << std::endl;
-}
 
 static void	squareRoot(int &i)
 {
 	i = i * i;
-}
-
-static void	str_toUpper(std::string& str)
-{
-	for (int i = 0; str[i]; i++)
-		str[i] = std::toupper(str[i]);
 }

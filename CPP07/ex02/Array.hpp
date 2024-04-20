@@ -4,7 +4,6 @@
 # include <iostream>
 # include <string>
 
-# include "Array.tpp"
 
 template <class T>
 class Array
@@ -19,8 +18,8 @@ class Array
 		Array& operator=(const Array<T>& copy);
 		Array(unsigned int n);
 
-		size_t	size(void);
-		const T&	operator[](size_t index) const;
+		size_t	size(void) const;
+		T&		operator[](size_t index);
 
 		class OutOfBoundException : std::exception
 		{
@@ -30,5 +29,7 @@ class Array
 			}
 		};
 };
+
+# include "Array.tpp"
 
 #endif /*ARRAY_HPP*/
