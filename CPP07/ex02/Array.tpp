@@ -49,4 +49,21 @@ Array<T>::Array(unsigned int n)
 	this->arr_size = n;
 }
 
+template <typename T>
+size_t	Array<T>::Array(void)
+{
+	return (this->arr_size);
+}
+
+template <typename T>
+const T&	Array<T>::operator[](size_t index) const
+{
+	if (index > size - 1)
+		throw OutOfBoundException();
+	else if (index < 0)
+		throw OutOfBoundException();
+	else
+		return (this->arr[index]);
+}
+
 #endif /*ARRAY_TPP*/

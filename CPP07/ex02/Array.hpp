@@ -20,8 +20,9 @@ class Array
 		Array(unsigned int n);
 
 		size_t	size(void);
+		const T&	operator[](size_t index) const;
 
-		class OutOfBound : std::exception
+		class OutOfBoundException : std::exception
 		{
 			virtual const char*	what() const throw()
 			{
