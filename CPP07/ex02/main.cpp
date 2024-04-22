@@ -5,6 +5,7 @@
 
 static void	test01(void);
 static void	test02(void);
+static void	test03(void);
 static void	incr(int& i);
 static void	squareRoot(int &i);
 
@@ -26,6 +27,8 @@ int main(void)
 	test01();
 	std::cout << "\n\nTest02:\n";
 	test02();
+	std::cout << "\n\nTest03:\n";
+	test03();
 	return 0;
 }
 
@@ -49,6 +52,30 @@ static void	test02(void)
 	for (size_t i = 0; i < arr.size(); i++)
 		squareRoot(arr[i]);
 	printArr(arr);
+}
+
+static void	test03(void)
+{
+	try
+	{
+		Array<int>	arr(10);
+
+		arr[-2] = -2;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << '\n';
+	}
+	try
+	{
+		Array<int>	arr(-10);
+
+		arr[2] = -2;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << '\n';
+	}
 }
 
 static void	incr(int& i)
