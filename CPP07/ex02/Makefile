@@ -30,6 +30,10 @@ $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo $(GREEN)"Linking template!"$(DEFAULT);
 
+test:
+	$(CPP) $(CPPFLAGS) main2.cpp -o $(NAME)
+	@echo $(GREEN)"Linking template!"$(DEFAULT);
+
 $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
