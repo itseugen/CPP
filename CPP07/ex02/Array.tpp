@@ -54,11 +54,11 @@ size_t	Array<T>::size(void) const
 }
 
 template <typename T>
-T&	Array<T>::operator[](size_t index)
+T&	Array<T>::operator[](int index)
 {
-	if (index > size() - 1)
+	if (index < 0)
 		throw OutOfBoundException();
-	else if (index < 0)
+	else if (index > static_cast<int>(size()) - 1)
 		throw OutOfBoundException();
 	else
 		return (this->arr[index]);
