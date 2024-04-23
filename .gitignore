@@ -79,6 +79,7 @@ template
 # CPP08
 easyfind
 span
+mutantstack
 
 *.txt
 *.log
