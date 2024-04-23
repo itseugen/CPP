@@ -78,6 +78,7 @@ template
 
 # CPP08
 easyfind
+span
 
 *.txt
 *.log
