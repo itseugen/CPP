@@ -92,7 +92,7 @@ int		Span::shortestSpan(void)
 	std::vector<int>	srt_arr = this->arr;
 
 	std::sort(srt_arr.begin(), srt_arr.end());
-	int	shortest_span = std::numeric_limits<int>::max();
+	int	shortest_span = INT_MAX;
 
 	for (unsigned int i = 1; i < srt_arr.size(); i++)
 	{

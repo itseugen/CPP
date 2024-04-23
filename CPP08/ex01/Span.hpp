@@ -6,6 +6,7 @@
 # include <algorithm>
 # include <vector>
 # include <ctime>
+# include <climits>
 
 class Span
 {
