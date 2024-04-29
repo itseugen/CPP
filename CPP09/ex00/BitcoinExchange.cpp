@@ -104,9 +104,7 @@ void	BitcoinExchange::input_file(std::string filename)
 			else if (bitcoin_value < 0)
 				std::cout << "Error: not a positive number!" << std::endl;
 			else
-			{
-				std::cout << line << " | " << bitcoin_value << std::endl;
-			}
+				calc_value(date, bitcoin_value);
 		}
 		else
 			std::cerr << "Cannot Parse line: " << line << "!\n";
@@ -133,4 +131,46 @@ bool	BitcoinExchange::legal_date(std::string date)
 	if (d < 1 || d > 31)
 		return (false);
 	return true;
+}
+
+void	BitcoinExchange::calc_value(std::string date, double bitcoin_value)
+{
+	double		res;
+	std::string	closest_date = findClosestDate(date);
+
+	res = database[closest_date] * bitcoin_value;
+	std::cout << date << " => " << bitcoin_value << " = " << res << std::endl;
+}
+
+//! Using the closest date (makes sense because the graph might be more correct, maybe change)
+std::string	BitcoinExchange::findClosestDate(const std::string& inputDate)
+{
+	double		minDifference = std::numeric_limits<double>::max();
+	std::string	closestDate;
+
+	for (std::map<std::string, double>::const_iterator iter = database.begin(); iter != database.end(); ++iter)
+	{
+		const std::string&	date = iter->first;
+		double				difference = fabs(compareDates(date, inputDate));
+
+		if (difference < minDifference)
+		{
+			minDifference = difference;
+			closestDate = date;
+		}
+	}
+	return (closestDate);
+}
+
+double	BitcoinExchange::compareDates(const std::string& date1, const std::string& date2)
+{
+	int	y1, m1, d1;
+	int	y2, m2, d2;
+
+	sscanf(date1.c_str(), "%d-%d-%d", &y1, &m1, &d1);
+	sscanf(date2.c_str(), "%d-%d-%d", &y2, &m2, &d2);
+
+	double	difference = (y1 - y2) * 365.0 + (m1 - m2) * 30.0 + (d1 - d2);
+
+	return (difference);
 }
