@@ -7,6 +7,7 @@ int	main(void)
 	try
 	{
 		btc.input_database("data.csv");
+		btc.input_file("input");
 	}
 	catch(const std::exception& e)
 	{

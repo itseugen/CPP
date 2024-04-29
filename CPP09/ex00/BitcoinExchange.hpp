@@ -7,6 +7,7 @@
 # include <map>
 # include <sstream>
 # include <fstream>
+# include <limits>
 
 class BitcoinExchange
 {
@@ -18,7 +19,11 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& copy);
 		BitcoinExchange& operator=(const BitcoinExchange& copy);
 
+		bool	legal_date(std::string date);
+
 		void	input_database(std::string filename);
+		void	input_file(std::string filename);
+
 		class	CannotOpenDatabaseException;
 		class	CannotParseLineException;
 };
