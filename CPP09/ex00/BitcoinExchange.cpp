@@ -98,7 +98,15 @@ void	BitcoinExchange::input_file(std::string filename)
 		if (std::getline(iss, date, '|') && iss >> bitcoin_value)
 		{
 			if (legal_date(date) == false)
-			std::cout << "Error: bad input => " << line << std::endl;
+				std::cout << "Error: bad input => " << line << std::endl;
+			else if (std::fabs(bitcoin_value) > 1.0e15)
+				std::cout << "Error: too large a number." << std::endl;
+			else if (bitcoin_value < 0)
+				std::cout << "Error: not a positive number!" << std::endl;
+			else
+			{
+				std::cout << line << " | " << bitcoin_value << std::endl;
+			}
 		}
 		else
 			std::cerr << "Cannot Parse line: " << line << "!\n";
