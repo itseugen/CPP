@@ -81,6 +81,9 @@ easyfind
 span
 mutantstack
 
+# CPP09
+btc
+
 *.txt
 *.log
 Account.hpp
