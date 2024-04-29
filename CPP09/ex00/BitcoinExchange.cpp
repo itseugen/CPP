@@ -61,17 +61,22 @@ void	BitcoinExchange::input_database(std::string filename)
 		throw CannotOpenDatabaseException();
 	}
 	std::string	line;
+	std::getline(inputFile, line);
 	while (std::getline(inputFile, line))
 	{
 		std::istringstream	iss(line);
 		std::string			date;
-		char				comma;
 		double				exchange_rate;
-		if (iss >> date >> comma >> exchange_rate)
+		if (std::getline(iss, date, ',') && iss >> exchange_rate)
 		{
 			this->database[date] = exchange_rate;
 		}
 		else
-			throw CannotParseLineException();
+			std::cerr << "Cannot Parse line: " << line << "!\n";
 	}
+	inputFile.close();
+    for (std::map<std::string, double>::const_iterator iter = database.begin(); iter != database.end(); ++iter) {
+        // Access the key and value using iterator
+        std::cout << "Date: " << iter->first << ", Value: " << iter->second << std::endl;
+    }
 }
