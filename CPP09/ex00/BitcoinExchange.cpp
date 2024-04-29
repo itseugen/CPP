@@ -75,8 +75,8 @@ void	BitcoinExchange::input_database(std::string filename)
 			std::cerr << "Cannot Parse line: " << line << "!\n";
 	}
 	inputFile.close();
-    for (std::map<std::string, double>::const_iterator iter = database.begin(); iter != database.end(); ++iter) {
-        // Access the key and value using iterator
-        std::cout << "Date: " << iter->first << ", Value: " << iter->second << std::endl;
-    }
+    // for (std::map<std::string, double>::const_iterator iter = database.begin(); iter != database.end(); ++iter) {
+    //     // Access the key and value using iterator
+    //     std::cout << "Date: " << iter->first << ", Value: " << iter->second << std::endl;
+    // }
 }
