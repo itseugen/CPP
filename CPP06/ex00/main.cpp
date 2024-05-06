@@ -2,24 +2,27 @@
 
 int	main(void)
 {
-	ScalarConverter::convert("234.0f");
+	ScalarConverter::convert("");
 	std::cout << std::endl;
-	ScalarConverter::convert("43.32423");
+	ScalarConverter::convert("3812839012849012845908124901289041284901284908124908129048129048019489012849012480");
 	std::cout << std::endl;
-	ScalarConverter::convert("-234");
+	ScalarConverter::convert("-3812839012849012845908124901289041284901284908124908129048129048019489012849012480");
 	std::cout << std::endl;
-	ScalarConverter::convert("-5435.432");
+	ScalarConverter::convert("150");
 	std::cout << std::endl;
-	ScalarConverter::convert("74.0");
+	ScalarConverter::convert("-124");
 	std::cout << std::endl;
-	ScalarConverter::convert("+inf");
+	ScalarConverter::convert("+inff");
 	std::cout << std::endl;
-	ScalarConverter::convert("-inf");
+	ScalarConverter::convert("-inff");
 	std::cout << std::endl;
-	ScalarConverter::convert("nan");
+	ScalarConverter::convert("123.123f");
 	std::cout << std::endl;
-	std::cout << "Positive Infinity: " << std::numeric_limits<double>::infinity() << std::endl;
-	std::cout << "Negative Infinity: " << -std::numeric_limits<double>::infinity() << std::endl;
-	std::cout << "NaN: " << std::numeric_limits<float>::quiet_NaN() << std::endl;
+	ScalarConverter::convert("1");
+	std::cout << std::endl;
+	ScalarConverter::convert("0");
+	std::cout << std::endl;
+	ScalarConverter::convert("01");
+	std::cout << std::endl;
 	return (0);
 }

@@ -7,6 +7,7 @@
 # include <iomanip>
 # include <cctype>
 # include <limits>
+# include <cfloat>
 
 class ScalarConverter
 {
