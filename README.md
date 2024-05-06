@@ -138,6 +138,46 @@ Coded in
 
 </details>
 
+<!-- ## CPP05: -->
+<details>
+<summary><b><span style="font-size: larger;">CPP05:</span></b></summary>
+
+#### Bureaucrat:
+- Creates a Bureaucrat which has a grade which will later work as a level for signing and executing.
+- Uses Exceptions to catch errors if a Bureaucrat is created with wrong values.
+#### Form:
+- Creates a Form class. A Form has a required minimum grade for executing and signing.
+- Uses Exceptions if initiated with wrong values.
+- Uses Exceptions to print the response of the signForm function in the Bureaucrat.
+#### More Forms:
+- Makes form an Abstract class.
+- Creates three derived classes that build upon a Form. Each derived class does something different.
+- Adds a execute function that allows the Bureaucrat to execute any of the Forms.
+#### Intern
+- A new class, that takes a Form type and creates a new Form and returns it.
+
+</details>
+
+<!-- ## CPP06: -->
+<details>
+<summary><b><span style="font-size: larger;">CPP06:</span></b></summary>
+
+#### Scalar Conversion:
+- Takes a String and converts it into a char, integer, float and double.
+- Also takes a string containing a character ('a'), to use as a value.
+- Error proof for wrong input.
+- Uses static casts.
+#### Serializer:
+- Takes a pointer to the data struct and converts it to a uintptr_t.
+- Also reconverts the uintptr_t into the data struct.
+- Uses reinterpret casts.
+#### Identifier:
+- Generates a random type of a Bass class (either A, B or C).
+- Identifies which type of Base it is from either a pointer or a reference.
+- Uses dynamic cast.
+
+</details>
+
 ---
 ## Installation and Usage
 1. Clone the repository:
