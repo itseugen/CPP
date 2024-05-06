@@ -7,7 +7,6 @@
 # include <iomanip>
 # include <cctype>
 # include <limits>
-# include <cfloat>
 
 class ScalarConverter
 {
@@ -15,12 +14,13 @@ class ScalarConverter
 		ScalarConverter();
 
 		void	printChar(long double nbr);
+		bool	check_number(std::string& str);
 	public:
 		~ScalarConverter();
 		ScalarConverter(const ScalarConverter& copy);
 		ScalarConverter& operator=(const ScalarConverter& copy);
 
-		static void	convert(const std::string& str);
+		static void	convert(std::string& str);
 };
 
 #endif /*SCALARCONVERTER_HPP*/
