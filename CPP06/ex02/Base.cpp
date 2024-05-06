@@ -54,7 +54,6 @@ void	Base::identify(Base& p)
 	}
 	catch (const std::exception& e)
 	{
-
 	}
 	try
 	{
@@ -65,7 +64,6 @@ void	Base::identify(Base& p)
 	}
 	catch (const std::exception& e)
 	{
-		
 	}
 	try
 	{
@@ -76,7 +74,6 @@ void	Base::identify(Base& p)
 	}
 	catch(const std::exception& e)
 	{
-
 	}
 	std::cout << "Object has unknown type!\n";
 }
