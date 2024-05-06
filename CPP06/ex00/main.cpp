@@ -1,28 +1,9 @@
 #include "ScalarConverter.hpp"
 
-int	main(void)
+int	main(int argc, char* argv[])
 {
-	ScalarConverter::convert("");
-	std::cout << std::endl;
-	ScalarConverter::convert("3812839012849012845908124901289041284901284908124908129048129048019489012849012480");
-	std::cout << std::endl;
-	ScalarConverter::convert("-3812839012849012845908124901289041284901284908124908129048129048019489012849012480");
-	std::cout << std::endl;
-	ScalarConverter::convert("150");
-	std::cout << std::endl;
-	ScalarConverter::convert("-124");
-	std::cout << std::endl;
-	ScalarConverter::convert("+inff");
-	std::cout << std::endl;
-	ScalarConverter::convert("-inff");
-	std::cout << std::endl;
-	ScalarConverter::convert("123.123f");
-	std::cout << std::endl;
-	ScalarConverter::convert("1");
-	std::cout << std::endl;
-	ScalarConverter::convert("0");
-	std::cout << std::endl;
-	ScalarConverter::convert("01");
-	std::cout << std::endl;
+	if (argc != 2)
+		return (1);
+	ScalarConverter::convert(argv[1]);
 	return (0);
 }

@@ -6,12 +6,12 @@
 
 ScalarConverter::ScalarConverter()
 {
-	std::cout << "ScalarConverter Default Constructor called" << std::endl;
+	// std::cout << "ScalarConverter Default Constructor called" << std::endl;
 }
 
 ScalarConverter::~ScalarConverter()
 {
-	std::cout << "ScalarConverter Default Destructor called" << std::endl;
+	// std::cout << "ScalarConverter Default Destructor called" << std::endl;
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter& copy)
