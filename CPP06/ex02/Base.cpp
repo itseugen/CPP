@@ -45,12 +45,38 @@ void	Base::identify(Base* p)
 void	Base::identify(Base& p)
 {
 	std::cout << "Called reference identifier!\n";
-	if (dynamic_cast<A*>(&p) != NULL)
+	try
+	{
+		A&	ref = dynamic_cast<A&>(p);
 		std::cout << "Object has type A!\n";
-	else if (dynamic_cast<B*>(&p) != NULL)
+		(void)ref;
+		return ;
+	}
+	catch (const std::exception& e)
+	{
+
+	}
+	try
+	{
+		B& ref = dynamic_cast<B&>(p);
 		std::cout << "Object has type B!\n";
-	else if (dynamic_cast<C*>(&p) != NULL)
+		(void)ref;
+		return ;
+	}
+	catch (const std::exception& e)
+	{
+		
+	}
+	try
+	{
+		C& ref = dynamic_cast<C&>(p);
 		std::cout << "Object has type C!\n";
-	else
-		std::cout << "Object has unknown type!\n";
+		(void)ref;
+		return ;
+	}
+	catch(const std::exception& e)
+	{
+
+	}
+	std::cout << "Object has unknown type!\n";
 }
