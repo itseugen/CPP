@@ -175,6 +175,29 @@ Coded in
 - Generates a random type of a Bass class (either A, B or C).
 - Identifies which type of Base it is from either a pointer or a reference.
 - Uses dynamic cast.
+
+</details>
+
+<!-- ## CPP07: -->
+<details>
+<summary><b><span style="font-size: larger;">CPP07:</span></b></summary>
+
+#### Function templates:
+- Creating templates for different functions.
+- A swap function template that takes two values and swaps them.
+- A min function template that compares two values and returns the smaller one.
+- And a max function template that returns the bigger value.
+#### A more complicated function template:
+- Takes the address of an array, the lenght of the array and a function to apply to all elements of the array.
+- The function templete works with any type of array and the function the template takes can be another function template.
+#### Class templates:
+- A class Array template that creates an Array.
+- The Array gets constructed with n Elements given to the constructor or as an empty Array.
+- Has a working copy constructor and copy assignment operator that ensure deep copies.
+- Elements can be accessed through the [] operator.
+- If the accessed index is out of bounds, an exception gets thrown.
+- A size function that returns the size of the array.
+
 </details>
 
 ---
