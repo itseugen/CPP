@@ -175,7 +175,6 @@ Coded in
 - Generates a random type of a Bass class (either A, B or C).
 - Identifies which type of Base it is from either a pointer or a reference.
 - Uses dynamic cast.
-
 </details>
 
 ---
