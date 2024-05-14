@@ -110,7 +110,7 @@ static void	spanTest(void)
 {
 	try
 	{
-		Span	sp(2);
+		Span	sp(4);
 
 		sp.addNumber(-42);
 		sp.addNumber(42);
