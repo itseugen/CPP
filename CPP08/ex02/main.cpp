@@ -1,13 +1,17 @@
 #include "MutantStack.hpp"
 #include <list>
 #include <vector>
+#include <algorithm>
 
 static void	subjectTest(void);
+static void	sortTest(void);
 
 int	main(void)
 {
 	std::cout << "Subject Main:\n";
 	subjectTest();
+	std::cout << "\n\nAlgorithm test\n";
+	sortTest();
 	return (0);
 }
 
@@ -84,5 +88,40 @@ static void	subjectTest(void)
 			++it;
 		}
 		std::vector<int> s(mstack);
+	}
+}
+
+static void	sortTest(void)
+{
+	{
+		MutantStack<int>	mstack;
+
+		for (int i = 5; i > 0; i--)
+			mstack.push(i);
+		std::sort(mstack.begin(), mstack.end());
+		std::cout << "Sorted vector:\n";
+		MutantStack<int>::iterator it = mstack.begin();
+		while (it != mstack.end())
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+	}
+	{
+		MutantStack<std::string>	mstack;
+
+		mstack.push("Hello World!");
+		mstack.push("I AM ROBOT!");
+		mstack.push("We ate the penguin!");
+		mstack.push("123 Test 123");
+		mstack.push("Countdown till apocalypse: 5, 4, ERROR, Apocalypse NOW!");
+		std::sort(mstack.begin(), mstack.end());
+		std::cout << "Sorted vector:\n";
+		MutantStack<std::string>::iterator it = mstack.begin();
+		while (it != mstack.end())
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
 	}
 }
