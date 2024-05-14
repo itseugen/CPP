@@ -54,15 +54,15 @@ static void	test01(void)
 
 static void	test02(void)
 {
-	std::array<int, 5>	arr;
-	arr[0] = 10;
-	arr[1] = -2;
-	arr[2] = 42;
-	arr[3] = 12;
-	arr[4] = -2345;
+	std::vector<int>	arr;
+	arr.push_back(10);
+	arr.push_back(-2);
+	arr.push_back(42);
+	arr.push_back(12);
+	arr.push_back(-2345);
 	try
 	{
-		std::array<int, 5>::iterator	idx = easyfind(arr, 42);
+		std::vector<int>::iterator	idx = easyfind(arr, 42);
 		std::cout << "Value found at index: " << std::distance(arr.begin(), idx) << std::endl;
 		std::cout << "Value is: " << *idx << std::endl;
 	}
@@ -73,7 +73,7 @@ static void	test02(void)
 	std::cout << std::endl;
 	try
 	{
-		std::array<int, 5>::iterator	idx = easyfind(arr, -42);
+		std::vector<int>::iterator	idx = easyfind(arr, -42);
 		std::cout << "Value found at index: " << std::distance(arr.begin(), idx) << std::endl;
 		std::cout << "Value is: " << *idx << std::endl;
 	}
