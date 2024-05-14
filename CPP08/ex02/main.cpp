@@ -116,7 +116,7 @@ static void	sortTest(void)
 		mstack.push("123 Test 123");
 		mstack.push("Countdown till apocalypse: 5, 4, ERROR, Apocalypse NOW!");
 		std::sort(mstack.begin(), mstack.end());
-		std::cout << "Sorted vector:\n";
+		std::cout << "Sorted stack:\n";
 		MutantStack<std::string>::iterator it = mstack.begin();
 		while (it != mstack.end())
 		{
