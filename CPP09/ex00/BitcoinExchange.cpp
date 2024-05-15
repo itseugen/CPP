@@ -138,14 +138,19 @@ void	BitcoinExchange::calc_value(std::string date, double bitcoin_value)
 	double		res;
 	std::string	closest_date = findClosestDate(date);
 
-	res = database[closest_date] * bitcoin_value;
-	std::cout << date << " => " << bitcoin_value << " = " << res << std::endl;
+	if (closest_date != "NULL")
+	{
+		res = database[closest_date] * bitcoin_value;
+		std::cout << date << " => " << bitcoin_value << " = " << res << std::endl;
+	}
+	else
+		std::cerr << "Error: Date too early!" << std::endl;
 }
 
 std::string	BitcoinExchange::findClosestDate(const std::string& inputDate)
 {
 	double		minDifference = std::numeric_limits<double>::max();
-	std::string	closestDate;
+	std::string	closestDate = "NULL";
 
 	for (std::map<std::string, double>::const_iterator iter = database.begin(); iter != database.end(); ++iter)
 	{
