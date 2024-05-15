@@ -39,5 +39,47 @@ RPN&	RPN::operator=(const RPN &copy)
 
 void	RPN::calculateRPN(std::string input)
 {
-	
+	std::istringstream	iss(input);
+	std::string			token;
+	std::string			tokens[] = {"+", "-", "*", "/"};
+
+	while (iss >> token)
+	{
+		bool	found = std::find(tokens, tokens + 4, token) != tokens + 4;
+		if (found == true && stack.size() == 2)
+		{
+			int	nbr2 = stack.top();
+			stack.pop();
+			int	nbr1 = stack.top();
+			stack.pop();
+			switch (token[0])
+			{
+				case '+':
+					stack.push(nbr1 + nbr2);
+					break ;
+				case '-':
+					stack.push(nbr1 - nbr2);
+					break ;
+				case '*':
+					stack.push(nbr1 * nbr2);
+					break ;
+				case '/':
+					stack.push(nbr1 / nbr2);
+					break ;
+			}
+		}
+		else if (found == true && stack.size() != 2)
+		{
+			std::cerr << "Error: Wrong input!\n";
+			return ;
+		}
+		else
+		{
+			stack.push(std::stoi(token));
+		}
+	}
+	if (stack.size() != 1)
+		std::cerr << "Error: Stack not empty, wrong input!\n";
+	else
+		std::cout << input << " = " << stack.top();
 }
