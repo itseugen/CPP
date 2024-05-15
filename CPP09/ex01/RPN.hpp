@@ -10,8 +10,8 @@ class RPN
 {
 	private:
 		std::stack<int>	stack;
-		RPN();
 	public:
+		RPN();
 		~RPN();
 		RPN(const RPN& copy);
 		RPN& operator=(const RPN& copy);

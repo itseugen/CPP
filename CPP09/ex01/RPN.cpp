@@ -46,7 +46,12 @@ void	RPN::calculateRPN(std::string input)
 	while (iss >> token)
 	{
 		bool	found = std::find(tokens, tokens + 4, token) != tokens + 4;
-		if (found == true && stack.size() == 2)
+		if (found == true && stack.size() < 2)
+		{
+			std::cerr << "Error: Wrong input!\n";
+			return ;
+		}
+		else if (found == true)
 		{
 			int	nbr2 = stack.top();
 			stack.pop();
@@ -68,11 +73,6 @@ void	RPN::calculateRPN(std::string input)
 					break ;
 			}
 		}
-		else if (found == true && stack.size() != 2)
-		{
-			std::cerr << "Error: Wrong input!\n";
-			return ;
-		}
 		else
 		{
 			stack.push(std::stoi(token));
@@ -81,5 +81,5 @@ void	RPN::calculateRPN(std::string input)
 	if (stack.size() != 1)
 		std::cerr << "Error: Stack not empty, wrong input!\n";
 	else
-		std::cout << input << " = " << stack.top();
+		std::cout << input << " = " << stack.top() << std::endl;
 }
