@@ -9,6 +9,7 @@
 # include <fstream>
 # include <limits>
 # include <cmath>
+# include <ctime>
 
 class BitcoinExchange
 {
