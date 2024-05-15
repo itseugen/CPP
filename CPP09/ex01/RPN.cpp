@@ -43,40 +43,53 @@ void	RPN::calculateRPN(std::string input)
 	std::string			token;
 	std::string			tokens[] = {"+", "-", "*", "/"};
 
-	while (iss >> token)
+	try
 	{
-		bool	found = std::find(tokens, tokens + 4, token) != tokens + 4;
-		if (found == true && stack.size() < 2)
+		while (iss >> token)
 		{
-			std::cerr << "Error: Wrong input!\n";
-			return ;
-		}
-		else if (found == true)
-		{
-			int	nbr2 = stack.top();
-			stack.pop();
-			int	nbr1 = stack.top();
-			stack.pop();
-			switch (token[0])
+			bool	found = std::find(tokens, tokens + 4, token) != tokens + 4;
+			if (found == true && stack.size() < 2)
 			{
-				case '+':
-					stack.push(nbr1 + nbr2);
-					break ;
-				case '-':
-					stack.push(nbr1 - nbr2);
-					break ;
-				case '*':
-					stack.push(nbr1 * nbr2);
-					break ;
-				case '/':
-					stack.push(nbr1 / nbr2);
-					break ;
+				std::cerr << "Error: Wrong input!\n";
+				return ;
+			}
+			else if (found == true)
+			{
+				int	nbr2 = stack.top();
+				stack.pop();
+				int	nbr1 = stack.top();
+				stack.pop();
+				switch (token[0])
+				{
+					case '+':
+						stack.push(nbr1 + nbr2);
+						break ;
+					case '-':
+						stack.push(nbr1 - nbr2);
+						break ;
+					case '*':
+						stack.push(nbr1 * nbr2);
+						break ;
+					case '/':
+						stack.push(nbr1 / nbr2);
+						break ;
+				}
+			}
+			else
+			{
+				stack.push(std::stoi(token));
 			}
 		}
-		else
-		{
-			stack.push(std::stoi(token));
-		}
+	}
+	catch (const std::invalid_argument& e)
+	{
+		std::cerr << "Error: Invalid argument encountered.\n";
+		return ;
+	}
+	catch (...)
+	{
+		std::cerr << "Unknown error occurred.\n";
+		return ;
 	}
 	if (stack.size() != 1)
 		std::cerr << "Error: Stack not empty, wrong input!\n";
