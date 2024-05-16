@@ -10,6 +10,7 @@
 # include <limits>
 # include <cmath>
 # include <ctime>
+# include <climits>
 
 class BitcoinExchange
 {
