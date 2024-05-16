@@ -11,6 +11,7 @@
 # include <climits>
 # include <sstream>
 
+// Expected: Vector to be faster since it has faster element access.
 class PmergeMe
 {
 	private:
@@ -21,6 +22,10 @@ class PmergeMe
 
 		void	FordJohnsonAlg(std::vector<int>& seq, char *argv[]);
 		void	FordJohnsonAlg(std::deque<int>& seq, char *argv[]);
+		// void	mergeInsertionSort(std::vector<int>& seq);
+		void	fordJohnsonSort(std::vector<int>& seq);
+		void	fordJohnsonSort(std::deque<int>& seq);
+		// void	mergeInsertionSort(std::deque<int>& seq);
 		int		stringToInt(const std::string& str);
 	public:
 		PmergeMe();

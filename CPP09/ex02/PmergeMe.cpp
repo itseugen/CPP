@@ -107,36 +107,60 @@ void	PmergeMe::FordJohnsonAlg(std::vector<int>& seq, char *argv[])
 		}
 	}
 
-	bool	swapped = true;
-
-	while (swapped)
-	{
-		swapped = false;
-		for (int i = 0; i < (int)seq.size() - 1; i++)
-		{
-			if (seq[i] > seq[i + 1])
-			{
-				std::swap(seq[i], seq[i + 1]);
-				swapped = true;
-			}
-		}
-		if (swapped == false)
-			break ;
-		swapped = false;
-		for (int i = (int)seq.size() - 2; i >= 0; i--)
-		{
-			if (seq[i] > seq[i + 1])
-			{
-				std::swap(seq[i], seq[i + 1]);
-				swapped = true;
-			}
-		}
-	}
+	fordJohnsonSort(seq);
 
 	gettimeofday(&end, NULL);
 	long seconds = end.tv_sec - start.tv_sec;
 	long microseconds = end.tv_usec - start.tv_usec;
 	this->timeCon1 = seconds * 1000000 + microseconds;
+}
+
+void PmergeMe::fordJohnsonSort(std::vector<int>& seq)
+{
+	if (seq.size() <= 1)
+		return ;
+
+	std::vector<int>	first;
+	std::vector<int>	second;
+
+	size_t	mid = seq.size() / 2;
+
+	for (size_t i = 0; i < mid; ++i)
+		first.push_back(seq[i]);
+	for (size_t i = mid; i < seq.size(); ++i)
+		second.push_back(seq[i]);
+
+	fordJohnsonSort(first);
+	fordJohnsonSort(second);
+
+	seq.clear();
+
+	size_t	i = 0;
+	size_t	j = 0;
+
+	while (i < first.size() && j < second.size())
+	{
+		if (first[i] <= second[j])
+		{
+			seq.push_back(first[i]);
+			i++;
+		}
+		else
+		{
+			seq.push_back(second[j]);
+			j++;
+		}
+	}
+	while (i < first.size())
+	{
+		seq.push_back(first[i]);
+		i++;
+	}
+	while (j < second.size())
+	{
+		seq.push_back(second[j]);
+		j++;
+	}
 }
 
 void	PmergeMe::FordJohnsonAlg(std::deque<int>& seq, char *argv[])
@@ -161,38 +185,132 @@ void	PmergeMe::FordJohnsonAlg(std::deque<int>& seq, char *argv[])
 			}
 		}
 	}
-
-	bool	swapped = true;
-
-	while (swapped)
-	{
-		swapped = false;
-		for (int i = 0; i < (int)seq.size() - 1; i++)
-		{
-			if (seq[i] > seq[i + 1])
-			{
-				std::swap(seq[i], seq[i + 1]);
-				swapped = true;
-			}
-		}
-		if (swapped == false)
-			break ;
-		swapped = false;
-		for (int i = (int)seq.size() - 2; i >= 0; i--)
-		{
-			if (seq[i] > seq[i + 1])
-			{
-				std::swap(seq[i], seq[i + 1]);
-				swapped = true;
-			}
-		}
-	}
+	
+	fordJohnsonSort(seq);
 
 	gettimeofday(&end, NULL);
 	long seconds = end.tv_sec - start.tv_sec;
 	long microseconds = end.tv_usec - start.tv_usec;
 	this->timeCon2 = seconds * 1000000 + microseconds;
 }
+
+void PmergeMe::fordJohnsonSort(std::deque<int>& seq)
+{
+	if (seq.size() <= 1)
+		return ;
+
+	std::deque<int>	first;
+	std::deque<int>	second;
+
+	size_t	mid = seq.size() / 2;
+
+	for (size_t i = 0; i < mid; ++i)
+		first.push_back(seq[i]);
+	for (size_t i = mid; i < seq.size(); ++i)
+		second.push_back(seq[i]);
+
+	fordJohnsonSort(first);
+	fordJohnsonSort(second);
+
+	seq.clear();
+
+	size_t	i = 0;
+	size_t	j = 0;
+
+	while (i < first.size() && j < second.size())
+	{
+		if (first[i] <= second[j])
+		{
+			seq.push_back(first[i]);
+			i++;
+		}
+		else
+		{
+			seq.push_back(second[j]);
+			j++;
+		}
+	}
+	while (i < first.size())
+	{
+		seq.push_back(first[i]);
+		i++;
+	}
+	while (j < second.size())
+	{
+		seq.push_back(second[j]);
+		j++;
+	}
+}
+
+// void	PmergeMe::mergeInsertionSort(std::deque<int>& seq)
+// {
+// 	if (seq.size() <= 1)
+// 		return;
+
+// 	std::deque<int> first;
+// 	std::deque<int> second;
+
+// 	for (size_t i = 0; i < seq.size(); i += 2)
+// 	{
+// 		if (i + 1 < seq.size())
+// 		{
+// 			if (seq[i] > seq[i + 1])
+// 			{
+// 				first.push_back(seq[i + 1]);
+// 				second.push_back(seq[i]);
+// 			}
+// 			else
+// 			{
+// 				first.push_back(seq[i]);
+// 				second.push_back(seq[i + 1]);
+// 			}
+// 		}
+// 		else
+// 			first.push_back(seq[i]);
+// 	}
+
+// 	mergeInsertionSort(first);
+// 	mergeInsertionSort(second);
+
+// 	seq.clear();
+// 	size_t	i = 0;
+// 	size_t	j = 0;
+
+// 	while (i < first.size() && j < second.size())
+// 	{
+// 		if (first[i] <= second[j]) {
+// 			seq.push_back(first[i]);
+// 			i++;
+// 		}
+// 		else
+// 		{
+// 			seq.push_back(second[j]);
+// 			j++;
+// 		}
+// 	}
+// 	while (i < first.size())
+// 	{
+// 		seq.push_back(first[i]);
+// 		i++;
+// 	}
+// 	while (j < second.size())
+// 	{
+// 		seq.push_back(second[j]);
+// 		j++;
+// 	}
+
+// 	for (i = seq.size() - 1; i > 0; i--)
+// 	{
+// 		int		k = seq[i];
+// 		size_t	j = i + 1;
+// 		while (j < seq.size() && seq[j] < k)
+// 		{
+// 			seq[j - 1] = seq[j];
+// 			j++;
+// 		}
+// 		seq[j - 1] = k;
+// 	}
+// }
 
 int	PmergeMe::stringToInt(const std::string& str)
 {
