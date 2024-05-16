@@ -34,25 +34,6 @@ $(OBJ_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
-test: all
-	@echo "Testing errors:"
-	./RPN "(2 + 2)"
-	./RPN "2 2 + +"
-	./RPN "-"
-	./RPN "Hello World"
-	./RPN "2 2 + - 2"
-	@echo
-	@echo
-	@echo "Testing:"
-	@echo "Expected: 42, Result:"
-	@./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
-	@echo "Expected: 42, Result:"
-	@./RPN "7 7 * 7 -"
-	@echo "Expected: 0, Result:"
-	@./RPN "1 2 * 2 / 2 * 2 4 - +"
-	@echo "Expected: 14, Result:"
-	@./RPN "5 1 2 + 4 * + 3 -"
-
 debug: CPPFLAGS += -g
 debug: re
 
