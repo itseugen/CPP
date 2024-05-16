@@ -106,30 +106,34 @@ void	PmergeMe::FordJohnsonAlg(std::vector<int>& seq, char *argv[])
 			}
 		}
 	}
-	int		maxNbr = INT_MIN;
-	int		minNbr = INT_MAX;
 
-	for (size_t i = 0; i < seq.size(); i++)
+	bool	swapped = true;
+
+	while (swapped)
 	{
-		if (seq[i] > maxNbr)
-			maxNbr = seq[i];
-		if (seq[i] < minNbr)
-			minNbr = seq[i];
-	}
-	std::vector<std::vector<int> >	buckets(maxNbr - minNbr + 1);
-	for (size_t i = 0; i < seq.size(); ++i)
-		buckets[seq[i] - minNbr].push_back(seq[i]);
-	seq.clear();
-	for (size_t i = 0; i < buckets.size(); i++)
-	{
-		if (!buckets[i].empty())
+		swapped = false;
+		for (int i = 0; i < (int)seq.size() - 1; i++)
 		{
-			std::sort(buckets[i].begin(), buckets[i].end());
-			for (size_t j = 0; j < buckets[i].size(); j++)
-				seq.push_back(buckets[i][j]);
+			if (seq[i] > seq[i + 1])
+			{
+				std::swap(seq[i], seq[i + 1]);
+				swapped = true;
+			}
+		}
+		if (swapped == false)
+			break ;
+		swapped = false;
+		for (int i = (int)seq.size() - 2; i >= 0; i--)
+		{
+			if (seq[i] > seq[i + 1])
+			{
+				std::swap(seq[i], seq[i + 1]);
+				swapped = true;
+			}
 		}
 	}
-	gettimeofday(&end, NULL); // End time
+
+	gettimeofday(&end, NULL);
 	long seconds = end.tv_sec - start.tv_sec;
 	long microseconds = end.tv_usec - start.tv_usec;
 	this->timeCon1 = seconds * 1000000 + microseconds;
@@ -157,30 +161,34 @@ void	PmergeMe::FordJohnsonAlg(std::deque<int>& seq, char *argv[])
 			}
 		}
 	}
-	int		maxNbr = INT_MIN;
-	int		minNbr = INT_MAX;
 
-	for (size_t i = 0; i < seq.size(); i++)
+	bool	swapped = true;
+
+	while (swapped)
 	{
-		if (seq[i] > maxNbr)
-			maxNbr = seq[i];
-		if (seq[i] < minNbr)
-			minNbr = seq[i];
-	}
-	std::deque<std::deque<int> >	buckets(maxNbr - minNbr + 1);
-	for (size_t i = 0; i < seq.size(); ++i)
-		buckets[seq[i] - minNbr].push_back(seq[i]);
-	seq.clear();
-	for (size_t i = 0; i < buckets.size(); i++)
-	{
-		if (!buckets[i].empty())
+		swapped = false;
+		for (int i = 0; i < (int)seq.size() - 1; i++)
 		{
-			std::sort(buckets[i].begin(), buckets[i].end());
-			for (size_t j = 0; j < buckets[i].size(); j++)
-				seq.push_back(buckets[i][j]);
+			if (seq[i] > seq[i + 1])
+			{
+				std::swap(seq[i], seq[i + 1]);
+				swapped = true;
+			}
+		}
+		if (swapped == false)
+			break ;
+		swapped = false;
+		for (int i = (int)seq.size() - 2; i >= 0; i--)
+		{
+			if (seq[i] > seq[i + 1])
+			{
+				std::swap(seq[i], seq[i + 1]);
+				swapped = true;
+			}
 		}
 	}
-	gettimeofday(&end, NULL); // End time
+
+	gettimeofday(&end, NULL);
 	long seconds = end.tv_sec - start.tv_sec;
 	long microseconds = end.tv_usec - start.tv_usec;
 	this->timeCon2 = seconds * 1000000 + microseconds;
