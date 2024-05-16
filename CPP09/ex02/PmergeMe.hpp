@@ -8,6 +8,8 @@
 # include <algorithm>
 # include <limits>
 # include <sys/time.h>
+# include <climits>
+# include <sstream>
 
 class PmergeMe
 {
@@ -19,6 +21,7 @@ class PmergeMe
 
 		void	FordJohnsonAlg(std::vector<int>& seq, char *argv[]);
 		void	FordJohnsonAlg(std::deque<int>& seq, char *argv[]);
+		int		stringToInt(const std::string& str);
 	public:
 		PmergeMe();
 		// PmergeMe(char *argv[]);

@@ -94,7 +94,7 @@ void	PmergeMe::FordJohnsonAlg(std::vector<int>& seq, char *argv[])
 		{
 			try
 			{
-				int	nbr = std::stoi(argv[i]);
+				int	nbr = stringToInt(argv[i]);
 
 				if (nbr <= 0 || (std::string(argv[i]).length() >= 10 && std::string(argv[i]) > "2147483647"))
 					throw WrongInputException();
@@ -145,7 +145,7 @@ void	PmergeMe::FordJohnsonAlg(std::deque<int>& seq, char *argv[])
 		{
 			try
 			{
-				int	nbr = std::stoi(argv[i]);
+				int	nbr = stringToInt(argv[i]);
 
 				if (nbr <= 0 || (std::string(argv[i]).length() >= 10 && std::string(argv[i]) > "2147483647"))
 					throw WrongInputException();
@@ -184,4 +184,17 @@ void	PmergeMe::FordJohnsonAlg(std::deque<int>& seq, char *argv[])
 	long seconds = end.tv_sec - start.tv_sec;
 	long microseconds = end.tv_usec - start.tv_usec;
 	this->timeCon2 = seconds * 1000000 + microseconds;
+}
+
+int	PmergeMe::stringToInt(const std::string& str)
+{
+	int	result = 0;
+	std::istringstream iss(str);
+
+	iss >> result;
+	if (iss.fail())
+	{
+		throw std::invalid_argument("Conversion failed.");
+	}
+	return (result);
 }
