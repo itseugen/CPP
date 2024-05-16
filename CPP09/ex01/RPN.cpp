@@ -77,7 +77,7 @@ void	RPN::calculateRPN(std::string input)
 			}
 			else
 			{
-				stack.push(std::stoi(token));
+				stack.push(stringToInt(token));
 			}
 		}
 	}
@@ -95,4 +95,17 @@ void	RPN::calculateRPN(std::string input)
 		std::cerr << "Error: Stack not empty, wrong input!\n";
 	else
 		std::cout << input << " = " << stack.top() << std::endl;
+}
+
+int	RPN::stringToInt(const std::string& str)
+{
+	int	result = 0;
+	std::istringstream iss(str);
+
+	iss >> result;
+	if (iss.fail())
+	{
+		throw std::invalid_argument("Conversion failed.");
+	}
+	return (result);
 }

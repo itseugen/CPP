@@ -5,11 +5,14 @@
 # include <string>
 # include <stack>
 # include <sstream>
+# include <algorithm>
 
 class RPN
 {
 	private:
 		std::stack<int>	stack;
+
+		int	stringToInt(const std::string& str);
 	public:
 		RPN();
 		~RPN();
