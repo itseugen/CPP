@@ -200,6 +200,54 @@ Coded in
 
 </details>
 
+<!-- ## CPP08: -->
+<details>
+<summary><b><span style="font-size: larger;">CPP08:</span></b></summary>
+
+#### Easy find:
+- A function that accepts a template type T and an integer.
+- T is a container of integers.
+- The function finds the first occurence of the integer inside T and returns it.
+#### Span:
+- A class that stores a maximum of N integers.
+- A function addNumber() to add a number and a function addXNumbers() to add X random numbers to the container.
+- Throws an exception if you try to add more than N elements.
+- Two functions shortestSpan() and longestSpan() that will return the difference between the two smallest/biggest elements.
+#### Mutant Stack:
+- A stack container that is iterable.
+- Class inherits from std::stack.
+- Functions begin() and end() that return an iterator to the beginning/end of the stack.
+
+</details>
+
+<!-- ## CPP09: -->
+<details>
+<summary><b><span style="font-size: larger;">CPP09:</span></b></summary>
+
+#### Bitcoin Exchange:
+- A program to calculate ones Bitcoins value at a certain date.
+- The dataset called data.csv has to be present at root, the program accesses it to get the bitcoin rate at certain dates.
+- The program takes a file as argument, the file hast to be in the format "date | value".
+- The date format is yyyy-mm-dd. A valid value has to be a positive int, float or double, not bigger than INT_MAX.
+- If the given date is not in the dataset, it will take the next lower value, if the value is lower than any value in the dataset, an error will be shown.
+- Used Container: std::map to use the date-string to access elements.
+#### Reverse Polish Notation:
+- A program that calculates a reversed Polish mathematical expression.
+- Neither the end result nor any result inbetween can be bigger than INT_MAX, it will overflow.
+- Should a wrong equation be passed, an error will be thrown.
+- The tokens '+', '-', '*' and '/' are supported.
+- Used container: std::stack since only the top element needs to be accessed.
+#### PmergeMe:
+- A program that sorts a positive integer sequence.
+- It uses a variation of the Ford-Johnson algorithm to sort the numbers.
+- If a non-positive integer number gets parsed, an error is thrown.
+- To store and sort the sequence std::vector and std::deque are used.
+- The program will print the time in microseconds each container used with the same sorting algorithm.
+- For smaller sequences std::deque will be faster because of its memory segmentation.
+- For bigger sequences std::vector will get faster since the continous memory string allows for faster access.
+
+</details>
+
 ---
 ## Installation and Usage
 1. Clone the repository:
