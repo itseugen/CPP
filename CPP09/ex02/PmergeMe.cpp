@@ -75,7 +75,7 @@ void	PmergeMe::sortBoth(char *argv[])
 	std::cout << "Before:\t";
 	for (int i = 1; argv[i] != NULL; i++)
 		std::cout << argv[i] << " ";
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl << std::endl;
 	std::cout << "Sorted:\t";
 	for (size_t i = 0; i < this->sequenceVec.size(); i++)
 		std::cout << this->sequenceVec[i] << " ";
